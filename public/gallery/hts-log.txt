@@ -1,0 +1,20 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sun, 23 Jul 2017 06:09:56 at http://ppp-templates.de/fs/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://ppp-templates.de/fs/ -O1 "C:\Users\Siddhesh\Desktop\Technovanza\Gallery" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+06:15:11	Warning: 	Retry after error -4 (Incorrect length (307481 Bytes, 545300 expected)) at link ppp-templates.de/fs/images/pic01b.jpg (from ppp-templates.de/fs/)
+06:15:50	Warning: 	Retry after error -4 (Incorrect length (231828 Bytes, 425018 expected)) at link ppp-templates.de/fs/images/pic19b.jpg (from ppp-templates.de/fs/)
+06:15:52	Error: 	"Not Found" (404) at link ppp-templates.de/fs/images/bg-xing.png (from ppp-templates.de/fs/css/styles.css)
+06:15:52	Warning: 	Retry after error -4 (Incorrect length (286411 Bytes, 638129 expected)) at link ppp-templates.de/fs/images/slide02.jpg (from ppp-templates.de/fs/css/styles.css)
+06:16:21	Error: 	"Not Found" (404) at link ppp-templates.de/fs/css/fancybox_sprite.png (from ppp-templates.de/fs/css/jquery.fancybox.css)
+06:16:21	Error: 	"Not Found" (404) at link ppp-templates.de/fs/css/blank.gif (from ppp-templates.de/fs/css/jquery.fancybox.css)
+06:16:21	Error: 	"Not Found" (404) at link ppp-templates.de/fs/images/bg-xing@2x.png (from ppp-templates.de/fs/css/retina-responsive.css)
+06:16:21	Warning: 	Retry after error -4 (Incorrect length (735664 Bytes, 1009330 expected)) at link ppp-templates.de/fs/images/slide03.jpg (from ppp-templates.de/fs/classic.html)
+06:17:00	Error: 	"Not Found" (404) at link ppp-templates.de/fs/images/classic.html (from ppp-templates.de/fs/about.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 7 minutes 4 seconds : 131 links scanned, 121 files written (10614674 bytes overall) [10381204 bytes received at 24483 bytes/sec], 393272 bytes transferred using HTTP compression in 39 files, ratio 27%, 3.7 requests per connection
+(5 errors, 4 warnings, 0 messages)
