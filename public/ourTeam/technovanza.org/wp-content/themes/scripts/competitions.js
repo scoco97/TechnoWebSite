@@ -130,38 +130,38 @@ got.init = function() {
     }
 
     
-    // Setup people
-    var people = got.data[got.currentHouse].people
-    var dropdown = ''
-    for (var x in people) {
-        dropdown += '<a class="got-person-dropdown__item  js-person-dropdown-item" data-index="' + x + '">' + people[x].name + '</a>'
-    }
-    $('.js-person-dropdown-items').html(dropdown)
+    // // Setup people
+    // var people = got.data[got.currentHouse].people
+    // var dropdown = ''
+    // for (var x in people) {
+    //     dropdown += '<a class="got-person-dropdown__item  js-person-dropdown-item" data-index="' + x + '">' + people[x].name + '</a>'
+    // }
+    // $('.js-person-dropdown-items').html(dropdown)
 
-    // Init first person in list
-    got.People.changePerson(0, true)
-    got.Table.changeSeason('week1', true)
+    // // Init first person in list
+    // got.People.changePerson(0, true)
+    // got.Table.changeSeason('week1', true)
 
-    // IF no episodes
-    if (!got.data[got.currentHouse].data || typeof got.data[got.currentHouse].data[got.currentSeason - 1] === 'undefined') {
-        return
-    }
+    // // IF no episodes
+    // if (!got.data[got.currentHouse].data || typeof got.data[got.currentHouse].data[got.currentSeason - 1] === 'undefined') {
+    //     return
+    // }
 
-    const episodes = got.data[got.currentHouse].data[got.currentSeason - 1].episodes
-    const powerRankingData = []
-    const livingMembersData = []
-    const importanceData = []
+    //const episodes = got.data[got.currentHouse].data[got.currentSeason - 1].episodes
+    // const powerRankingData = []
+    // const livingMembersData = []
+    // const importanceData = []
 
-    for (var x in episodes) {
-        powerRankingData.push(episodes[x].ranking)
-        livingMembersData.push(episodes[x]['living_family'])
-        importanceData.push(episodes[x].importance)
-    }
+    // for (var x in episodes) {
+    //     powerRankingData.push(episodes[x].ranking)
+    //     livingMembersData.push(episodes[x]['living_family'])
+    //     importanceData.push(episodes[x].importance)
+    // }
 
-    var labels = []
-    for (var x = 1; x <= episodes.length; x++) {
-        labels.push(x)
-    }
+    // var labels = []
+    // for (var x = 1; x <= episodes.length; x++) {
+    //     labels.push(x)
+    // }
 
     var type = 'line'
     var fill = false
@@ -203,7 +203,7 @@ got.init = function() {
     var winsChange = 0
 
     if (got.currentSeason === 1) {
-        winsChange = parseInt(powerRankingData[powerRankingData.length - 1])
+      //  winsChange = parseInt(powerRankingData[powerRankingData.length - 1])
     } else {
         var previousSeasonEpisodes = got.data[got.currentHouse].data[got.currentSeason - 2].episodes
         var previousSeasonFinal = parseInt(previousSeasonEpisodes[previousSeasonEpisodes.length - 1].ranking)
@@ -212,28 +212,28 @@ got.init = function() {
 
 
     var start = parseInt($('#power-ranking-number').text())
-    got.People.count($('#power-ranking-number'), parseInt(powerRankingData[powerRankingData.length - 1]) || 0, start)
-    got.People.count($('#power-ranking-change'), winsChange || 0, parseInt($('#power-ranking-change').text()))
+    //got.People.count($('#power-ranking-number'), parseInt(powerRankingData[powerRankingData.length - 1]) || 0, start)
+    //got.People.count($('#power-ranking-change'), winsChange || 0, parseInt($('#power-ranking-change').text()))
 
-    var ctx2 = document.getElementById('myChart2').getContext('2d');
-    got.livingMembersChart = new Chart(ctx2, { 
-        type, 
-        data: { 
-            labels, 
-            datasets: [{ fill, backgroundColor, borderColor, data: livingMembersData }] 
-        }, 
-        options: options(livingMembersData, 25)
-    });
+    // var ctx2 = document.getElementById('myChart2').getContext('2d');
+    // got.livingMembersChart = new Chart(ctx2, { 
+    //     type, 
+    //     data: { 
+    //         labels, 
+    //         datasets: [{ fill, backgroundColor, borderColor, data: livingMembersData }] 
+    //     }, 
+    //     options: options(livingMembersData, 25)
+    // });
 
-    var ctx3 = document.getElementById('myChart3').getContext('2d');
-    got.importanceChart = new Chart(ctx3, { 
-        type: 'bar', 
-        data: { 
-            labels, 
-            datasets: [{ fill, backgroundColor, borderColor, data: importanceData }] 
-        }, 
-        options: options(importanceData) 
-    });
+    // var ctx3 = document.getElementById('myChart3').getContext('2d');
+    // got.importanceChart = new Chart(ctx3, { 
+    //     type: 'bar', 
+    //     data: { 
+    //         labels, 
+    //         datasets: [{ fill, backgroundColor, borderColor, data: importanceData }] 
+    //     }, 
+    //     options: options(importanceData) 
+    // });
 
     got.configSlider()
 }

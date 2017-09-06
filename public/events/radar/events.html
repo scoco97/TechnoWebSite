@@ -798,6 +798,15 @@ It will test how much you know about internet and things which it contain that i
 <!-- NAV BAR ENDS HERE -->
 
 
+<script type="text/javascript">
+  $(document).on("mouseover", ".autobots", function () {
+    $("article.data-quadrant").each(function (index, element) {
+        if ($(element).attr("data-quadrant") == "autobots") {
+            console.log("hello");
+        };
+    });
+})
+</script>
   <!-- <script>
   var circleArray = document.getElementsByClassName("circle");
 var angle = 0;

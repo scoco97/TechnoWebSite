@@ -30,8 +30,8 @@
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
     <script type="text/javascript" src="technovanza.org/wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4"></script>
-    <script type="text/javascript" src="technovanza.org/wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1"></script>
-    <script type="text/javascript" src="technovanza.org/wp-content/plugins/add-to-any/addtoany.min5152.js?ver=1.0"></script>
+    <!-- <script type="text/javascript" src="technovanza.org/wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1"></script> -->
+    <!-- <script type="text/javascript" src="technovanza.org/wp-content/plugins/add-to-any/addtoany.min5152.js?ver=1.0"></script> -->
     <script type="text/javascript">
     var a2a_config = a2a_config || {};
     a2a_config.callbacks = a2a_config.callbacks || [];
@@ -5005,7 +5005,7 @@
     </style>
 </head>
 
-<body class="page-template-default page page-id-214" onLoad="init()">
+<body class="page-template-default page page-id-214">
     <div class="se-pre-con"></div>
     <div class="got" data-house="stark">
         <div class="section  got-choose-house">
@@ -5023,24 +5023,24 @@
                     <div class="got-tabs is-sticky">
                         <div class="grid">
                             <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
-                                <div class="got-tab  js-got-tab is-active tablinks" data-house="stark" onclick="openDiv(event, 'spons')">
+                                <div class="got-tab  js-got-tab is-active tablinks" data-house="stark" onclick="openDiv(event, 'housecup')">
                                     <img src="technovanza.org/wp-content/themes/assets/sponsorship.png" class="got-tab__icon">
                                     <p class="got-tab__name">House Cup</p>
                                 </div>
                             </div>
                             <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
-                                <div class="got-tab  js-got-tab tablinks" data-house="targaryen" onclick="openDiv(event, 'pr')">
+                                <div class="got-tab  js-got-tab tablinks" data-house="targaryen" onclick="openDiv(event, 'schoolcup')">
                                     <img src="technovanza.org/wp-content/themes/assets/targaryen-logo.png" class="got-tab__icon">
                                     <p class="got-tab__name">School Cup</p>
                                 </div>
                             </div>
                             <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
-                                <div class="got-tab  js-got-tab tablinks" data-house="lannister" onclick="openDiv(event, 'marketing')">
+                                <div class="got-tab  js-got-tab tablinks" data-house="lannister" onclick="openDiv(event, 'collegecup')">
                                     <img src="technovanza.org/wp-content/themes/assets/lannister-logo.png" class="got-tab__icon">
                                     <p class="got-tab__name">College Cup</p>
                                 </div>
                             </div>
-                            <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
+                           <!--  <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
                                 <div class="got-tab  js-got-tab tablinks" data-house="baratheon" onclick="openDiv(event, 'operations')">
                                     <img src="technovanza.org/wp-content/themes/assets/baratheon-logo.png" class="got-tab__icon">
                                     <p class="got-tab__name">Operations</p>
@@ -5057,7 +5057,7 @@
                                     <img src="technovanza.org/wp-content/themes/assets/whitewalkers-logo.png" class="got-tab__icon">
                                     <p class="got-tab__name">Web &amp; App</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -5079,210 +5079,23 @@
                     <!-- <button class="glide__arrow prev" data&#45;glide&#45;dir="<">prev</button> -->
                     <!-- <button class="glide__arrow next" data&#45;glide&#45;dir=">">next</button> -->
                     <!-- </div> -->
-                    <div class="container tabcontent" id="spons">
+                    <div class="container tabcontent" id="housecup">
                         <canvas id="house-cup-bar" width="800" height="450"></canvas>
                         <p id="house-chart-info"></p>
                     </div>
                     <!-- Container Ends -->
-                    <div class="container tabcontent" id="pr" style="display: none">
-                        
+
+                    <div class="container tabcontent" id="schoolcup" style="display: none">
+                        <h1>Coming Soon!</h1>
                     </div>
                     <!-- Container ends -->
-                    <div class="container tabcontent" id="marketing" style="display: none">
+
+                    <div class="container tabcontent" id="collegecup" style="display: none">
                         <canvas id="college-cup-bar" width="800" height="450"></canvas>
                         <p id="college-chart-info"></p>
                     </div>
                     <!-- Container ends -->
-                    <div class="container tabcontent" id="operations" style="display: none">
-                        <!--First row-->
-                        <div class="row mt-5 wow">
-                            <!--First column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(43).jpg" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">Praful Parmar</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.First column-->
-                            <!--Second column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.4s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(52)" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">Om Jadhav</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.Second column-->
-                            <!--Third column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.6s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(50).jpg" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">LOL!</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.Third column-->
-                        </div>
-                    </div>
-                    <!-- Container ends -->
-                    <div class="container tabcontent" id="design" style="display: none">
-                        <!--First row-->
-                        <div class="row mt-5 wow">
-                            <!--First column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(43).jpg" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">Saleem Shaikh</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.First column-->
-                            <!--Second column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.4s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(52)" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">Vaibhav</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.Second column-->
-                            <!--Third column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.6s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(50).jpg" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">U sae?</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.Third column-->
-                        </div>
-                    </div>
-                    <!-- Container ends -->
-                    <div class="container tabcontent" id="web" style="display: none">
-                        <!--First row-->
-                        <div class="row mt-5 wow">
-                            <!--First column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(43).jpg" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">Siddhesh Rane</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.First column-->
-                            <!--Second column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.4s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(52)" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">Yash Jain</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.Second column-->
-                            <!--Third column-->
-                            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.6s">
-                                <!--Card-->
-                                <div class="card" style="margin:10px 10px 10px 10px">
-                                    <!--Card image-->
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(50).jpg" alt="Card image cap">
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Title-->
-                                        <h4 class="card-title">Siddhesh Gangan</h4>
-                                        <!--Text-->
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#"><i class="fa fa-facebook-square" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                        <a href="#"><i class="fa fa-instagram" style="font-size:24px;color:black;padding:0px 10px 5px 10px;"></i></a>
-                                    </div>
-                                </div>
-                                <!--/.Card-->
-                            </div>
-                            <!--/.Third column-->
-                        </div>
-                    </div>
-                    <!-- Container ends -->
-                </div>
+                  </div>  
             </div>
         </div>
         <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" data-a2a-url="https://goo.gl/NwRcLu" style="right: 0px; top: 150px; line-height: 32px;">
@@ -5488,9 +5301,9 @@
         $(".se-pre-con").fadeOut("slow");;
     });
     </script>
-    <script type="text/javascript" src="technovanza.org/wp-includes/js/thickbox/thickbox.js"></script>
-    <script type="text/javascript" src="technovanza.org/wp-content/plugins/wpforms/assets/js/jquery.validate.min24fc.js?ver=1.15.1"></script>
-    <script type="text/javascript" src="technovanza.org/wp-content/plugins/wpforms/assets/js/wpformsedfb.js?ver=1.3.8"></script>
+    <!-- <script type="text/javascript" src="technovanza.org/wp-includes/js/thickbox/thickbox.js"></script> -->
+    <!-- <script type="text/javascript" src="technovanza.org/wp-content/plugins/wpforms/assets/js/jquery.validate.min24fc.js?ver=1.15.1"></script> -->
+    <!-- <script type="text/javascript" src="technovanza.org/wp-content/plugins/wpforms/assets/js/wpformsedfb.js?ver=1.3.8"></script> -->
 </body>
 
 </html>
