@@ -87,7 +87,12 @@ new Chart(document.getElementById("house-cup-bar"), {
       title: {
         display: true,
         text: 'Score of each house'
-      }
+      },
+      scales: {
+        yAxes: [{
+            barPercentage: 0.5
+        }]
+    }
     }
 });
 
@@ -108,8 +113,14 @@ new Chart(document.getElementById("college-cup-bar"), {
       title: {
         display: true,
         text: 'Score of Top-3 colleges'
-      }
+      },
+      scales: {
+        yAxes: [{
+            barPercentage: 0.5
+        }]
     }
+    }
+    
 });                            
 
 got.init = function() {

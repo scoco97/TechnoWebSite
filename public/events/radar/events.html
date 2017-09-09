@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="shortcut icon" href="images/eventsLogo.png">
 
   <title>Events | Technovanza 2017-18</title>
 
@@ -48,15 +49,17 @@
   <link rel="image_src" href=" images/meta/favicon2.png" />
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
- <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-  <script src="javascripts/modernizr.js"></script> <!-- Modernizr -->
  
   <link href="fonts/coolFont.css" rel="stylesheet" />
-  <link href=" css/events.css" rel="stylesheet" />
+  <link href=" css/events.css" rel="stylesheet" />          
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <script src=" javascripts/events.js" defer="defer"></script>
-
+<!-- STYLE FOR REGISTER BUTTON -->
   <style type="text/css">
+
+  
     .button {
   opacity: 0;
   position: relative;
@@ -112,44 +115,20 @@
   transform-origin: 50% 50%;
 }
   </style>
+ <!-- REGISTER BUTTON ENDS -->
 </head>
 
 <body class="pre-intro">
-<!-- <header class="cd-header">
-  <a class="cd-primary-nav-trigger" href="#0">
-      <span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span>
-    </a> 
-</header>
 
+	<!-- PRELOADER STARTS -->
+    <div class="se-pre-con"></div>
+    <!-- PRELOADER ENDS -->
 
-  <nav>
-    <ul class="cd-primary-nav">
-      <li class="cd-label">About us</li>
-
-      <li><a href="#0">Homepage</a></li>
-      <li><a href="#0">Events</a></li>
-      <li><a href="#0">Guest Lecture Series</a></li>
-      <li><a href="#0">Technophilia</a></li>
-      <li><a href="#0">Our Team</a></li>
-      <li><a href="#0">Gallery</a></li>
-
-      <li class="cd-label">Work with us</li>
-
-      <li><a href="#0">Login</a></li>
-      <li class="cd-label">Follow us</li>
-      
-      <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
-      <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
-      <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
-      <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-    </ul>
-  </nav>
- -->
   <header class="cd-content header" role="banner" id="header">
     <!-- <a class="cd-logo" href="#0"><img src="img/cd-logo.svg" alt="Logo"></a> -->
 
   <div class="header__logo">
-   <img src="images/eventsLogo.png" alt="Technovanza logo" />
+   <!-- <img src="images/eventsLogo.png" alt="Technovanza logo" /> -->
   <!-- <h1>Events - Technovanza</h1> -->
   </div>
 
@@ -783,63 +762,54 @@ It will test how much you know about internet and things which it contain that i
 
   <div class="footer__links">
     <ul>
-      <li><a href="http://www.technovanza.org" target="_blank" style="color:white">USAGE</a></li>
+      <li><div style="color:white">USAGE</div></li>
       <li class="help"><a>?</a></li>
+    </ul>
+    <ul>
+    	<li><div style="color:white">© Technovanza</div></li>
+    	<li>
+                <a href="https://www.facebook.com/technovanza/?ref=br_rs"><i class="fa fa-facebook-square" style="font-size:20px"></i></a>
+                <a href="https://twitter.com/technovanza?lang=en"><i class="fa fa-twitter-square" style="font-size:20px"></i></a>
+                <a href="https://www.instagram.com/technovanza/"><i class="fa fa-instagram" style="font-size:20px"></i></a>
+        </li>
     </ul>
   </div>
 
 </footer>
 
-<!-- NAV BAR ADDED HERE -->
-  <script src=" javascripts/events.js"></script>
+<!-- PRELOADER STARTS -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <style type="text/css">
+    .no-js #loader {
+        display: none;
+    }
 
-<script src="javascripts/jquery-2.1.1.js"></script>
-<script src="javascripts/main.js"></script> <!-- Resource jQuery -->
-<!-- NAV BAR ENDS HERE -->
+    .js #loader {
+        display: block;
+        position: absolute;
+        left: 100px;
+        top: 0;
+    }
 
-
-<script type="text/javascript">
-  $(document).on("mouseover", ".autobots", function () {
-    $("article.data-quadrant").each(function (index, element) {
-        if ($(element).attr("data-quadrant") == "autobots") {
-            console.log("hello");
-        };
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url(images/loader-64x/Preloader_4.gif) center no-repeat #fff;
+    }
+    </style>
+    <script type="text/javascript">
+    $(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
     });
-})
-</script>
-  <!-- <script>
-  var circleArray = document.getElementsByClassName("circle");
-var angle = 0;
+    </script>
 
-window.onload = chargearray;
-
-function chargearray () {
-    for (var i = 0, j = circleArray.length; i < j; i++) {
-        var circle = circleArray[i];
-        var circleAngle = parseInt (circle.dataset.angle);
-        var totalAngle = angle + circleAngle
-        var style = "rotate(" + totalAngle + "deg) translate(200px)";
-        totalAngle = - totalAngle;
-        style = style + " rotate(" + totalAngle + "deg)"
-        circle.style.webkitTransform = style;
-        circle.style.Transform = style;
-    }
-}
-
-document.onkeydown = function (e) {
-    e = e || window.event;
-    switch(e.which || e.keyCode) {
-        case 37:
-            angle = angle + 30;
-            chargearray ();
-            break;
-        case 39:
-            angle = angle - 30;
-            chargearray ();
-            break;
-    }
-}
-  </script> -->
+    <!-- PRELOADER ENDS -->
 </body>
 
 </html>

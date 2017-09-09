@@ -8,6 +8,11 @@ app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
 });
 
+app.get('/',function(req,res){
+  res.sendFile(path.join(__dirname+'/public/index/homepage.html'));
+  //__dirname : It will resolve to your project folder.
+});
+
 // route for ourTeam
 app.get('/ourTeam', (req, res) => {
    // if (req.session.user && req.cookies.user_sid) {
