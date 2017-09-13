@@ -1328,6 +1328,10 @@ textarea.form__input, .form__field textarea {
   color: #bbb
 }
 
+.section .got-footer ul{
+list-style-type: none;margin: 0;padding: 0;
+} 
+
 .glide {
   position: relative;
   width: 100%;
