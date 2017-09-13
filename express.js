@@ -5,13 +5,19 @@ var path = require('path')
 var bodyParser = require('body-parser')
 var app = express()
 app.set('view engine', 'pug')
-app.use(express.static('public/loginSignup'))
-app.use(express.static('public/ourTeamedit'))
-app.use(express.static('public/events/radar'))
+
+app.use(express.static('public'));
+app.use(express.static('public/loginSignup',{ extensions: ['html'] }));
+app.use(express.static('public/ourTeam',{ extensions: ['html'] }));
+app.use(express.static('public/events/radar', {extensions: ['html']}));
+app.use(express.static('public/gallery',{extensions: ['html']}));
+app.use(express.static('public/loginSignup',{extensions: ['html']}));
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   //key: 'user_sid',
