@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300');
 body {
     background-image: linear-gradient(to top, #ecedee 0%, #eceeef 75%, #e7e8e9 100%);
     min-height: 100vh;
@@ -39,7 +40,7 @@ font-family: 'Open Sans', sans-serif;
 .gallery-container h1 {
     text-align: center;
     margin-top: 52px;
-    font-family: 'Droid Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
 
@@ -87,7 +88,6 @@ font-family: 'Open Sans', sans-serif;
     }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300');
 .flex-center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,7 +102,6 @@ font-family: 'Open Sans', sans-serif;
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
 }
 a,
 a:visited,
@@ -338,7 +337,7 @@ h1 {
   transition: width 0.4s ease;
 }
 a:focus, a:hover {
-    color: #23527c;
+    color: #fff;
      text-decoration: none; 
 }
 @media (max-width: 700px){

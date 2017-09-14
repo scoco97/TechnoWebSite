@@ -9,13 +9,13 @@
 
     <title>Gallery | Technovanza 2017-18</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <link rel="stylesheet" href="gallery-grid.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 </head>
 <body>
@@ -46,13 +46,14 @@
     <div>
       <div>
         <ul>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="#">Home</a></li>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="#">Events</a></li>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="#">Competitions</a></li>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="#">Technophilia</a></li>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="#">Lecture Series</a></li>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="#">Our Team</a></li>
-          <li><a style="font-family: 'Open Sans', sans-serif;"  href="#">Gallery</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif; color: white;" href="/home">Home</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif;color: white;" href="/events">Events</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif; color: white;" href="/competitions">Competitions</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif; color: white;" href="/technophilia">Technophilia</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif; color: white;" href="/lectureSeries">Lecture Series</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif; color: white;" href="/sponsors">Sponsors</a></li>
+          <!-- <li><a style="font-family: 'Open Sans', sans-serif;" href="#">Our Team</a></li> -->
+          <!-- <li><a style="font-family: 'Open Sans', sans-serif;"  href="/">Gallery</a></li> -->
           <li>
                 <a href="https://www.facebook.com/technovanza/?ref=br_rs"><i class="fa fa-facebook-square" style="font-size:36px"></i></a>
                 <a href="https://twitter.com/technovanza?lang=en"><i class="fa fa-twitter-square" style="font-size:36px"></i></a>
@@ -71,7 +72,7 @@
          <div class="collapse navbar-collapse" id="top-navbar">
              <ul class="nav navbar-nav navbar-right">
                   <li class="tablinks"><a href="#guestLectureSeries" onclick="openDiv(event, 'divGal')" ><div class="linktext ">GLS</div></a></li>
-                <li class="tablinks"><a href="#events" class="linktext" onclick="openDiv(event, 'divEvents')">EVENTS</a></li>
+                <li class="tablinks"><a href="#events" onclick="openDiv(event, 'divEvents')"><div class="linktext">EVENTS</div></a></li>
                 <li class="tablinks"><a href="#socialInitiatives" onclick="openDiv(event, 'divSocinit')"><div class="linktext">SOCIAL INITIATIVES</div></a></li>
                 <li class="tablinks"><a href="#media" onclick="openDiv(event, 'divMedia')"><div class="linktext">MEDIA</div></a></li>
                 <li class="tablinks"><a href="#rcmo" onclick="openDiv(event, 'divRcmo')"><div class="linktext">RCMO</div></a></li>
@@ -550,10 +551,6 @@ function openDiv(event, divName){
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-
-</html>
-
 
 <script>
     baguetteBox.run('.tz-gallery');

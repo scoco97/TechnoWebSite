@@ -90,11 +90,18 @@ new Chart(document.getElementById("house-cup-bar"), {
       },
       scales: {
         yAxes: [{
-            barPercentage: 0.45,
-            ticks:{min: 0,
-        	max: 8000,
-        	stepSize:1000}
-        }]
+         barPercentage: 0.45
+
+        }],
+         xAxes:[{
+            gridLines: {
+            display:false
+        },
+          ticks: {
+             min: 0,
+             beginAtZero: true,
+           }
+    }]
     }
     }
 });
@@ -120,7 +127,12 @@ new Chart(document.getElementById("college-cup-bar"), {
       scales: {
         yAxes: [{
             barPercentage: 0.5
-        }]
+        }],
+        xAxes:[{
+          ticks: {
+             min: 0,
+             beginAtZero: true,
+           }}]
     }
     }
     
