@@ -9,11 +9,11 @@ app.use(function (req, res, next) {
 });
 
 app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname + '/public/index/homepage.html'));
+  res.sendFile(path.join(__dirname + '/public/homepage/homepage.html'));
 });
 
 app.get('/register',function(req,res){
-  res.sendFile(path.join(__dirname + '/public/loginSignup/register.html'));
+  res.sendFile(path.join(__dirname + '/public/register/register.html'));
 });
 
 app.get('/ourTeam', (req, res) => {
@@ -21,11 +21,19 @@ app.get('/ourTeam', (req, res) => {
 });
 
 app.get('/lectures',function(req,res){
-  res.sendFile(path.join(__dirname + '/public/ourTeam/lectureSeriesedit.html'));
+  res.sendFile(path.join(__dirname + '/public/ourTeam/lectureSeries.html'));
+});
+
+app.get('/competitions',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/ourTeam/competitions.html'));
 });
 
 app.get('/technophilia',function(req,res){
   res.sendFile(path.join(__dirname + '/public/ourTeam/technophilia.html'));
+});
+
+app.get('/sponsors',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/ourTeam/sponsors.html'));
 });
 
 app.get('/gallery',function(req,res){

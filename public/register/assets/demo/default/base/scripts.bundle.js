@@ -1,6 +1,3 @@
-/**
- * @class mApp  Metronic App class
- */
 
 var mApp = function() {
     
@@ -350,9 +347,7 @@ var mApp = function() {
 $(document).ready(function() {
     mApp.init();
 });
-/**
- * @class mUtil  Metronic base utilize class that privides helper functions
- */
+
 
 var mUtil = function() {
     var resizeHandlers = [];

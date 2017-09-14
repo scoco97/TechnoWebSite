@@ -78,7 +78,7 @@ new Chart(document.getElementById("house-cup-bar"), {
         {
           label: "Current Score ",
           backgroundColor: ["#fc0c00", "#00a305","#0f189b"],
-          data: [24,52,73]
+          data: [6518,5831,5420]
         }
       ]
     },
@@ -90,7 +90,10 @@ new Chart(document.getElementById("house-cup-bar"), {
       },
       scales: {
         yAxes: [{
-            barPercentage: 0.5
+            barPercentage: 0.45,
+            ticks:{min: 0,
+        	max: 8000,
+        	stepSize:1000}
         }]
     }
     }

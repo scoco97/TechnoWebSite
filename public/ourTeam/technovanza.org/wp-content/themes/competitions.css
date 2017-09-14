@@ -3351,7 +3351,7 @@ list-style-type: none;margin: 0;padding: 0;
 }
 
 .got[data-house="stark"] .button {
-  background-color:#176564
+  background-color:#282931
 }
 
 .got[data-house="stark"] .button:hover {
@@ -3359,23 +3359,23 @@ list-style-type: none;margin: 0;padding: 0;
 }
 
 .got[data-house="stark"] .got-select-season__item.is-active, .got[data-house="stark"] .got-tabs.is-sticky {
-  background-color: #176564
+  background-color: #282931
 }
 
 .got[data-house="stark"] .got-choose-house, .got[data-house="stark"] .got-footer, .got[data-house="stark"] .got-vote__item.is-selected {
-  background-color:#176564
+  background-color:#282931
 }
 
 .got[data-house="stark"] .got-choose-house:after {
-  background-color: rgba(23, 101, 100, 0.8)
+  background-color: rgba(40, 41, 49, 0.8)
 }
 
 .got[data-house="stark"] .got-person-section:after {
-  background-color: rgba(23, 101, 100, 0.8)
+  background-color: rgba(40, 41, 49, 0.8)
 }
 
 .got[data-house="stark"] .got-chart__number, .got[data-house="stark"] .got-vote__success {
-  color: #176564
+  color: #282931
 }
 
 .got[data-house="targaryen"] .button {

@@ -22,7 +22,7 @@ html {
 
 body {
     font-family: 'brandon-grotesque', Arial, sans-serif;
-    color: #6d6d6d;
+    color: #282931;
     font-weight: 350;
     font-size: 1em;
     position: relative;
@@ -228,7 +228,7 @@ a:hover, a:active, a:focus {
 }
 
 .navbar-default.affix {
-    background-color: rgba(45, 45, 45, .85);
+    background-color: #282931;
     -moz-transition: background-color 1.5s;
     -webkit-transition: background-color 1.5s;
     transition: background-color 1.5s;
