@@ -11,7 +11,11 @@ var got = {
     },
     colors: {
         stark: '#3C3C3C',
-        targaryen: '#C62B19'
+        targaryen: '#C62B19',
+        lannister: '#911104',
+        baratheon: '#EEAC00',
+        tyrell: '#488C29',
+        whiteWalkers: '#C4C4C2'
     }
 }
 
@@ -190,7 +194,6 @@ got.init = function() {
 
 got.configSlider = function() {
     var wWidth = window.innerWidth
-
     if (wWidth < 768) {
         if (got.sliderActive) {
             return
@@ -221,7 +224,7 @@ got.configSlider = function() {
 got.setFixedHeader = function() {
     var sTop = $(window).scrollTop()
     
-    if (sTop >= 450) { /*changed from 550 to 450*/
+    if (sTop >= 300) { /*changed from 550 to 300*/
         $('.got-tabs').addClass('is-sticky')
     } else {
         $('.got-tabs').removeClass('is-sticky')
