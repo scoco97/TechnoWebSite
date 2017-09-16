@@ -3800,7 +3800,7 @@ var isMobile = !1;
                         default:
                             $(".author__name h3").html("Kollegorna"), $(".author__name h4").html("")
                     }
-                    $(".author__photo img").attr("src", "images/team/" + r + ".jpg"), $(".overlay .status").attr("class", "").addClass("status " + u), "new" === u ? $(".overlay .status").html(d) : $(".overlay .status").html("Awaited!"), $("body").addClass("detail"), openDetail = !0, $('.registerForEvent').attr('href', rfe);
+                    $(".author__photo img").attr("src", "images/team/" + r + ".png"), $(".overlay .status").attr("class", "").addClass("status " + u), "new" === u ? $(".overlay .status").html(d) : $(".overlay .status").html("Awaited!"), $("body").addClass("detail"), openDetail = !0, $('.registerForEvent').attr('href', rfe);
                 }
             };
         document.addEventListener("DOMContentLoaded", function() {

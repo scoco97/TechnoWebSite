@@ -3044,10 +3044,10 @@ body.detail .caption p {
 }
 
 .overlay__blip__details .left .author__photo {
-    background: #968cbe;
+    /*background: #968cbe;*/
     width: 67px;
     height: 67px;
-    border-radius: 50%;
+    border-radius: 25%;
     float: left;
     margin-right: 20px;
     overflow: hidden
