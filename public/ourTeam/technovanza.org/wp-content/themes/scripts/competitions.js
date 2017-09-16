@@ -126,13 +126,17 @@ new Chart(document.getElementById("college-cup-bar"), {
       },
       scales: {
         yAxes: [{
-            barPercentage: 0.5
+            barPercentage: 0.45
         }],
         xAxes:[{
+            gridLines: {
+            display:false
+        },
           ticks: {
              min: 0,
              beginAtZero: true,
-           }}]
+           }
+    }]
     }
     }
     
