@@ -1,0 +1,30 @@
+{
+  "name": "technovanza",
+  "version": "1.0.0",
+  "description": "annual technical festival of vjti mumbai",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "googleapis": "^21.3.0",
+    "mysql": "^2.14.1",
+    "node-pre-gyp": "^0.6.36",
+    "node-gyp": "^3.6.2",
+    "pug": "^2.0.0-rc.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scoco97/TechnoWebSite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scoco97/TechnoWebSite/issues"
+  },
+  "homepage": "https://github.com/scoco97/TechnoWebSite#readme"
+}
