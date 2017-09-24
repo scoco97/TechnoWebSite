@@ -2790,6 +2790,11 @@ body.detail .blip:after {
     transition-delay: 0.2s
 }
 
+.caption.active p.contact {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s
+}
+
 body.detail .caption h4,
 body.detail .caption p {
     opacity: 0 !important;
@@ -3126,6 +3131,13 @@ body.detail .caption p {
     line-height: 1.3;
     color: white;
     margin: 0 0 28px 0
+}
+
+.overlay__blip__details .right p.contact1 {
+    margin: 0 0 0px 0
+}
+.overlay__blip__details .right p.contact2 {
+    margin: 0 0 0px 0
 }
 
 .overlay__blip__details .right p.ring {
