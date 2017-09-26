@@ -224,6 +224,7 @@ app.get('/vrc-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/vrc-register.html'));
 });
 app.post('/vrc-register',(req,res)=>{
+  console.log(req);
 });
 
 
