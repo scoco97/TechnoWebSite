@@ -86,7 +86,7 @@
 								<h3 class="m-login__title">Register</h3>
 								<div class="m-login__desc">Enter your details to register</div>
 							</div>
-							<form class="m-login__form m-form" action="/signup">
+							<form class="m-login__form m-form" method="POST" action="/robowars-register">
 								<h3>Team Leader Details</h3>
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Team Leader Fullname" name="leader_fullname" required="">
@@ -114,19 +114,19 @@
 								<div class="form-group m-form__group">
 									<input class="form-control m-input" type="text" placeholder="Member 6" name="member_6" >
 								</div>
-
-								
 								<br>
 								<div class="form-group m-form__group">
-									<input class="form-control m-input m-login__form-input--last" type="text" placeholder="College Name" name="collegeName">
+									<input class="form-control m-input" type="text" placeholder="College Name" name="collegeName">
 								</div>
+								<br>
+
 								<label for="housename" class="label">If VJTI, mention House :</label>
 								
-									<select class="form-control m-input m-login__form-input--last">
-										<option value="none">none</option>
-  										<option value="red-phoenix">Red Phoenix</option>
-  										<option value="green-griffins">Green Griffins</option>
-  										<option value="blue-dragons">Blue Dragons</option>
+									<select class="form-control m-input m-login__form-input--last" name="House">
+										<option value="none" name="none">none</option>
+  										<option value="red-phoenix" name="Red Phoenix">Red Phoenix</option>
+  										<option value="green-griffins" name="Green Griffins">Green Griffins</option>
+  										<option value="blue-dragons" name="Blue Dragons">Blue Dragons</option>
 									</select>
 								
 								
