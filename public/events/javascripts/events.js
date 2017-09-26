@@ -3753,6 +3753,7 @@ var isMobile = !1;
                     contact1=e.attr("data-contact1");
                     contact2=e.attr("data-contact2");
                     contact3=e.attr("data-contact3");
+                    prizes = e.attr("data-prizes");
                     switch ($(".overlay").find("h1").html(t), $(".overlay").find(".description").html(n), $(".overlay").find(".link").html(i).attr("href", o), $(".overlay").find(".ring").html(s), $(".overlay .quadrant").attr("class", "").addClass("quadrant " + a), a) {
                         case "language":
                             $(".overlay .quadrant").html("View Pics!");
@@ -3801,7 +3802,7 @@ var isMobile = !1;
                             $(".author__name h3").html("Kollegorna"), $(".author__name h4").html("")
                     }
                     $(".author__photo img").attr("src", "images/team/" + r + ".png"), $(".overlay .status").attr("class", "").addClass("status " + u), "new" === u ? $(".overlay .status").html(d) : $(".overlay .status").html("Awaited!"), $("body").addClass("detail"), openDetail = !0, $('.registerForEvent').attr('href', rfe),$('.contact1').html(contact1),
-                        $('.contact2').html(contact2),$('.contact3').html(contact3);
+                        $('.contact2').html(contact2),$('.contact3').html(contact3),$('.prizes').html(prizes);
                 }
             };
         document.addEventListener("DOMContentLoaded", function() {
