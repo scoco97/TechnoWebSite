@@ -5,7 +5,6 @@ const login = require('./functions/login')
 const signup = require('./functions/signup')
 
 
-
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname + '/public/homepage/homepage.html'));
 });
@@ -30,6 +29,8 @@ app.post('/aqua-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body); 
+
+
 });
 
 
@@ -39,7 +40,7 @@ app.get('/climb-e-rope-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/climb-e-rope.html'));
 });
 app.post('/climb-e-rope-register',(req,res)=>{
-   let leadername = req.body.leader_fullname;
+  let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
   let member2name = req.body.member_2;
@@ -47,6 +48,8 @@ app.post('/climb-e-rope-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body); 
+
+
 });
 
 
