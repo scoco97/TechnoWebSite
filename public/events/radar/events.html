@@ -49,276 +49,6 @@
   <link rel="image_src" href=" images/meta/favicon2.png" />
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
-     <style type="text/css">
-    @import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300');
-.flex-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-* {
-  box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-}
-a,
-a:visited,
-a:hover,
-a:active {
-  color: inherit;
-  text-decoration: none;
-}
-h1 {
-  /*font-family: 'Pacifico', cursive;*/
-  font-weight: 400;
-  font-size: 3em;
-  text-align: center;
-}
-.outer-menu {
-  position: fixed;
-  top: 2vh;
-  left: 0;
-  z-index: 1000;
-  color: #fff;
-}
-.outer-menu .checkbox-toggle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-  opacity: 0;
-}
-.outer-menu .checkbox-toggle:checked + .hamburger > div {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-}
-.outer-menu .checkbox-toggle:checked + .hamburger > div:before,
-.outer-menu .checkbox-toggle:checked + .hamburger > div:after {
-  top: 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-.outer-menu .checkbox-toggle:checked + .hamburger > div:after {
-  opacity: 0;
-}
-.outer-menu .checkbox-toggle:checked ~ .menu {
-  pointer-events: auto;
-  visibility: visible;
-}
-.outer-menu .checkbox-toggle:checked ~ .menu > div {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition-duration: .75s;
-          transition-duration: .75s;
-}
-.outer-menu .checkbox-toggle:checked ~ .menu > div > div {
-  opacity: 1;
-  -webkit-transition: opacity 0.4s ease 0.4s;
-  transition: opacity 0.4s ease 0.4s;
-}
-
-.outer-menu .checkbox-toggle:checked:hover + .hamburger > div {
-  -webkit-transform: rotate(225deg);
-          transform: rotate(225deg);
-}
-.outer-menu .hamburger {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 60px;
-  height: 60px;
-  padding: .5em 1em;
-  color: rgba(23, 101, 100, 0.8);
-  border-radius: 0 0.12em 0.12em 0;
-  cursor: pointer;
-  -webkit-transition: box-shadow 0.4s ease;
-  transition: box-shadow 0.4s ease;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.outer-menu .hamburger > div {
-  position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
-  width: 100%;
-  height: 2px;
-  background: #FEFEFE;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.outer-menu .hamburger > div:before,
-.outer-menu .hamburger > div:after {
-  content: '';
-  position: absolute;
-  z-index: 1050;
-  top: -10px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: inherit;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-}
-.outer-menu .hamburger > div:after {
-  top: 10px;
-}
-.outer-menu .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  visibility: hidden;
-  overflow: hidden;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  outline: 1px solid transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.outer-menu .menu > div {
-  width: 200vw;
-  height: 200vw;
-  color: #FEFEFE;
-  background: #282931;
-  border-radius: 50%;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.outer-menu .menu > div > div {
-  text-align: center;
-  max-width: 90vw;
-  max-height: 100vh;
-  opacity: 0;
-  -webkit-transition: opacity 0.4s ease;
-  transition: opacity 0.4s ease;
-  overflow-y: auto;
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.outer-menu .menu > div > div > ul {
-  list-style: none;
-  padding: 0 1em;
-  margin: 0;
-  display: block;
-  max-height: 100vh;
-}
-.outer-menu .menu > div > div > ul > li {
-  padding: 0;
-  margin: 1em;
-  font-size: 24px;
-  display: block;
-}
-.outer-menu .menu > div > div > ul > li > a {
-  position: relative;
-  display: inline;
-  cursor: pointer;
-  -webkit-transition: color 0.4s ease;
-  transition: color 0.4s ease;
-}
-.outer-menu .menu > div > div > ul > li > a:hover {
-  color: #e5e5e5;
-}
-.outer-menu .menu > div > div > ul > li > a:hover:after {
-  width: 100%;
-}
-.outer-menu .menu > div > div > ul > li > a:after {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  bottom: -0.15em;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #e5e5e5;
-  -webkit-transition: width 0.4s ease;
-  transition: width 0.4s ease;
-}
-
-@media (max-width: 700px){
-    .outer-menu{
-        top:0;
-    }
-    .outer-menu .checkbox-toggle{
-        top:0;
-    }
-
-    .outer-menu .hamburger{
-
-    padding-right: 1.5em;
-    padding-left: .5em;
-    padding-top: 0.8em;
-    padding-bottom: 1.1em;
-    }
-}
-
-/*NAVBAR STYLES END HERE*/
- </style>
-
   <link href="fonts/coolFont.css" rel="stylesheet" />
   <link href=" css/events.css" rel="stylesheet" />          
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -487,6 +217,7 @@ h1 {
       <div class="overlay__blip__title">
         <h1>Events | Technovanza</h1>
         <a href="http://technovanza.org" target="_blank" class="link">technovanza.org</a>
+        <h3 class="prize">Prizes Worth : INR 25000</h3>
       </div>
 
       <div class="overlay__blip__details">
@@ -498,7 +229,6 @@ h1 {
               <img src="images/team/eureka.png" alt="Filippos" />
             </div>
             <div class="author__name">
-              <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Submit </button> -->
               <a class="button orange registerForEvent" href="#" style="opacity: 1;">
                   <svg viewBox="0 0 180 60">
                    <path d="M10,10 C10,10 50,9.98999977 90,9.98999977 C130,9.98999977 170,10 170,10 C170,10 170.009995,20 170.009995,30 C170.009995,40 170,50 170,50 C170,50 130,50.0099983 90,50.0099983 C50,50.0099983 10,50 10,50 C10,50 9.98999977,40 9.98999977,30 C9.98999977,20 10,10 10,10 Z">
@@ -509,11 +239,18 @@ h1 {
             </div>
           </div>
         </div>
+        
         <div class="right">
           <h2>Event Type</h2>
           <p class="ring trial">Autobots</p>
+
           <h2>Previous Year</h2>
           <a href="/gallery" target="_blank"><p class="quadrant language"></p></a>
+
+          <h2>Contact Us Here!</h2>
+          <p class="contact1">Nishant Wasad : +918698737743</p>
+          <p class="contact2">Pranamya Jain : +919029376644</p>
+          <p class="contact3"></p>
         </div>
       </div>
     </div>
@@ -572,7 +309,9 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-quadrant="autobots"
           data-status="new"
           data-register="/robowars-register"  
-          ></article>
+          data-contact1="Chaitanya Joshi : +918446550310"
+          data-contact2="Keivan Shah : +919757230590"
+          data-contact3="Chetana Shintre : +919930513770"></article>
 
           <article
           class="blip"
@@ -586,7 +325,29 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-distance="0.5"
           data-quadrant="autobots"
           data-status="new"
-          data-register="/vrc-register"></article>
+          data-register="/vrc-register"
+          data-contact1="Shubham Waghadhare : +919920780107"
+          data-contact2="Om jadhav : +918875351606"
+          data-contact3="Abhinav Kumar : +919869758308"
+          data-contact3=""></article>
+
+          <article
+          class="blip"
+          data-ring="Autobots"
+          data-title="Robomaze"
+          data-link-text="Download Problem Statement"
+          data-link-url=""
+          data-description=""
+          data-author="vrc"
+          data-angle="115"
+          data-distance="0.68"
+          data-quadrant="autobots"
+          data-status="new"
+          data-date="COMING SOON!"
+          data-register="/robomaze-register"
+          data-contact1="Shubham Waghadhare : +919920780107"
+          data-contact2="Om jadhav : +918875351606"
+          data-contact3=""></article>
 
              <article
           class="blip"
@@ -600,7 +361,11 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-distance="0.2"
           data-quadrant="autobots"
           data-status="new"
-          data-register="/robosoccer-register"></article>
+          data-date="COMING SOON!"
+          data-register="/robosoccer-register"
+          data-contact1="Ujwal Mondhe: +919527946834"
+          data-contact2=""
+          data-contact3=""></article>
 
              <article
           class="blip"
@@ -614,7 +379,11 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-distance="0.7"
           data-quadrant="autobots"
           data-status="new"
-          data-register="/robosumo-register"></article>
+          data-date="COMING SOON!"
+          data-register="/robosumo-register"
+          data-contact1="Mihir Pathak : +917045498973"
+          data-contact2="Aditya Balkawde : +919869766876"
+          data-contact3=""></article>
 
              <article
           class="blip"
@@ -628,7 +397,11 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-distance="0.91"
           data-quadrant="autobots"
           data-status="new"
-          data-register="/monsterarena-register"></article>
+          data-date="COMING SOON!"
+          data-register="/monsterarena-register"
+          data-contact1="Ujwal Mondhe : +919527946834"
+          data-contact2="Kalpesh Kotwal : +919833856989"
+          data-contact3=""></article>
 
 
         <article
@@ -643,7 +416,11 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-distance="0.12"
           data-quadrant="autobots"
           data-status="new"
-          data-register="/aqua-register"></article>
+          data-date="COMING SOON!"
+          data-register="/aqua-register"
+          data-contact1="Kalpesh Kotwal : +919833856989"
+          data-contact2=""
+          data-contact3=""></article>
     </section>
 
     <section class="radar__chart__icode">
@@ -655,7 +432,7 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-ring="ICode"
           data-title="Ultimate Coder"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Being one of the biggest events of technovanza and one of its kind , Ultimate Coder will test not only your programming skills but your ability to handle pressure , distractions and dead lines .
 It would be the ultimate test of your concentration skills with every round of it has a programming as well as a physical task associated with it . With the programing task becoming tougher and tougher with each round and the distraction keeps increasing will you b able to keep your cool and become the Ultimate coder ? .
 Anyone can be a coder but it takes something special to be the ULTIMATE CODER "
@@ -664,14 +441,17 @@ Anyone can be a coder but it takes something special to be the ULTIMATE CODER "
           data-distance="0.5"
           data-register="/ultimatecoder-register"
           data-quadrant="icode"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Saumya Gangwar : +919167418660"
+          data-contact2=""
+          data-contact3=""></article>
 
         <article
           class="blip"
           data-ring="ICode"
           data-title="Java Guru"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="The stereotypical programmer is a shy young man (or woman), scrawny or overweight, probably socially awkward, who works by himself in an 8’x8’ cubicle in a bigger room of dozens cubicles, each holding someone just like him. He intensely concentrates on writing cryptic instructions to coax a computer to do what is needed. He can concentrate twelve to sixteen hours at a time and often loses track of time and works through the night to realize what he perceives as an artistic creation. He devotes his evenings, weekends, and summers to work. He subsists on pizza, Twinkies, and Mountain Dew. When interrupted unexpectedly, the programmer may respond with strings of gibberish— SET PROC DATA STEP LIBNAME RUN! He has no social life and any hobbies he may have resemble his work. The programmer breaks away from the computer only to attend Star Trek conventions and… watch Game of Thrones reruns.
 In that vein,
 - for the nerds who love Programming,
@@ -684,14 +464,16 @@ We present to you JavaGuru "
           data-distance="0.92"
           data-quadrant="icode"
           data-status="new"
-          ></article>
+          data-contact1="Saumya Gangwar : +919167418660"
+          data-contact2=""
+          data-contact3=""></article>
 
         <article
           class="blip"
           data-ring="ICode"
           data-title="C Way"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description=" From Embedded Systems to networking, from hardware drivers to legacy games, C and its successor C++ have shown their versatility and functionality. This event is aimed at testing how good our participating C-Farers are at implementing them.
           Expect a depth from this often mistaken one-dimensional language family… Are you ready to take a dive?? "
           data-author="C"
@@ -699,28 +481,34 @@ We present to you JavaGuru "
           data-register="/cway-register"
           data-distance="0.7"
           data-quadrant="icode"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Saumya Gangwar : +919167418660"
+          data-contact2=""
+          data-contact3=""></article>
 
         <article
           class="blip"
           data-ring="ICode"
           data-title="Code Swap"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Code swap is an event which tests your skill of java, C++ and C along with team work. Understanding your partner is the key in solving this challenge that involves a lot of swapping. So do you think you and your partner can live up to our challenge? "
           data-author="codeswap"
           data-angle="148"
           data-register="/codeswap-register"
           data-distance="0.44"
           data-quadrant="icode"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Saumya Gangwar : +919167418660"
+          data-contact2=""
+          data-contact3=""></article>
 
             <article
           class="blip"
           data-ring="ICode"
           data-title="Techno Hunt"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="TechnoHunt is a combination of treasure hunt and technology.
 There comes a time in every rightly construed mind when it has a ragging desire to go somewhere and dig a hidden treasure. Now here’s a chance for all you techies to fulfil your desire.
 Expect ambiguous technological questions, logic & reasoning, various tricky tasks, surprising coding queries, team work & co-ordination and lots & lots of fun.
@@ -730,14 +518,17 @@ So get ready for this rollercoaster ride and go accomplish your destiny to hunt 
           data-distance="0.64"
           data-register="/technohunt-register"
           data-quadrant="icode"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Saumya Gangwar : +919167418660"
+          data-contact2=""
+          data-contact3=""></article>
 
             <article
           class="blip"
           data-ring="ICode"
           data-title="SherLocked"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-register="/sherlocked-register"
           data-description="A murder has been committed. Police has asked detective Mr. Sherlock homes (you as a participant) for help.
 Now get ready to use your hacking/networking skills to catch the thick-skinned killer."
@@ -745,14 +536,17 @@ Now get ready to use your hacking/networking skills to catch the thick-skinned k
           data-angle="245"
           data-distance="1.05"
           data-quadrant="icode"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Saumya Gangwar : +919167418660"
+          data-contact2=""
+          data-contact3=""></article>
 
             <article
           class="blip"
           data-ring="ICode"
           data-title="Mission SQL"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="They say a code without a proper structure is as good as no code. And when it comes to handling databases, a misstep is a disaster. The event will test the ingenuity of the participants at handling the concept, design and syntax of SQL.
 The world thrives on data; let’s see how well data thrives on your code!
 The game play is purely made to enhance the database skills of participants.
@@ -764,7 +558,10 @@ Fare means will be considered while game play."
           data-distance="0.84"
           data-register="/missionsql-register"
           data-quadrant="icode"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Saumya Gangwar : +919167418660"
+          data-contact2=""
+          data-contact3=""></article>
     </section>
 
     <section class="radar__chart__imech">
@@ -776,27 +573,51 @@ Fare means will be considered while game play."
           data-ring="IMech"
           data-title="Fast n Furious"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Design the fastest and the shrewdest IC engine car and put on your seat-belts to face a white-knuckling race through the roughest arena! From the makers of ‘TECHNOVANZA’ here’s another thrilling real time all-terrain racing competition, race THE FAST AND FURIOUS from across the nation! Let’s put your car-designing abilities and your car’s the strength, power and efficiency of to test. Certificates will be given on the spot. FREE Registrations for all!!"
           data-author="fastnfurious"
           data-angle="160"
           data-distance="1"
           data-register="/fastnfurious-register"
           data-quadrant="imech"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Sunny Sharma : +919920037123"
+          data-contact2="Yash Hule : +919769635590"
+          data-contact3=""></article>
+
+          <article
+          class="blip"
+          data-ring="IMech"
+          data-title="Drone"
+          data-link-text="Download Problem Statement"
+          data-link-url=""
+          data-description=""
+          data-author="fastnfurious"
+          data-angle="225"
+          data-distance="0.75"
+          data-register="/drone-register"
+          data-quadrant="imech"
+          data-status="new"
+          data-contact1="Sunny Sharma : +919920037123"
+          data-contact2="Yash Hule : +919769635590"
+          data-contact3=""></article>
+
         <article
           class="blip"
           data-ring="IMech"
           data-title="Climb-e-Rope"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Here is the rope to success! Can your bot climb it?? But here is the twist. A bot has to climb the rope using any hydraulic mechanism which could be as simple as a syringe. "
           data-author="Climb-E"
           data-angle="300"
           data-register="/climb-e-rope-register"
           data-distance="0.6"
           data-quadrant="imech"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Abhinav Kumar  : +919869758308"
+          data-contact2=""
+          data-contact3=""></article>
     </section>
 
 
@@ -810,28 +631,34 @@ Fare means will be considered while game play."
           data-ring="IBuild"
           data-title="Bridge the gap"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Across gulfs and rivers, between people and countries, bridges break down separation and foster connectedness. The world has gone at its heights to reach the sky. As far back as we can see in history, human beings have used technology to solve problems and ease physical burdens and this has played a major role in human development. Here is your chance to build structures with your own techniques and skills and make the marvels of engineering!!"
           data-author="bridgethegap"
           data-angle="90"
           data-register="/bridgethegap-register"
           data-distance="0.8"
           data-quadrant="ibuild"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Abhinav Kumar  : +919869758308"
+          data-contact2="Aditya Balkawde : +919869766876"
+          data-contact3=""></article>
 
         <article
           class="blip"
           data-ring="IBuild"
           data-title="Smart City"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Still fantasizing about that city of your dreams? Well, Technovanza is back to give you a platform, to make all that out of your dreams and to design your very own city. So people! Grab the opportunity! Come, participate and prove your management and logical thinking in aspects of city planning and making it smart."
           data-author="smartcity"
           data-angle="240"
           data-register="/smartcity-register"
           data-distance="0.1"
           data-quadrant="ibuild"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Utkarsha Rathod  : +917588960928"
+          data-contact2="Aditya Balkawde : +919869766876"
+          data-contact3=""></article>
     </section>
 
     <section class="radar__chart__eureka">
@@ -843,7 +670,7 @@ Fare means will be considered while game play."
           data-ring="Eureka"
           data-title="TPP"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Give a chance to present yourself and let the world know that the minute but meaningful things they ignored, you noticed and clustered them to form a great invention for betterment of humanity.
 Technical paper presentation (TPP) gives you stand for the same and to present your views and perspectives regarding working of gadgets, or out of the box you can postulate a new invention by submitting and drafting your thesis on white papers."
           data-author="tpp"
@@ -851,14 +678,17 @@ Technical paper presentation (TPP) gives you stand for the same and to present y
           data-register="/tpp-register"
           data-distance="1.2"
           data-quadrant="eureka"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Vidhan Agrawal  : +919930652872"
+          data-contact2="Sumit Yadav : +918411964872"
+          data-contact3=""></article>
 
            <article
           class="blip"
           data-ring="Eureka"
           data-title="Makers Square"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-register="/makerssquare-register"
           data-description="Most of us have lots of ideas but only few of them are able to successfully execute that one idea that makes all the difference.If you are fortunate to have found that killer idea, Maker's Square is your golden ticket.
 
@@ -867,7 +697,10 @@ Maker's Square is a national event to put up your projects and exhibits ranging 
           data-angle="130"
           data-distance="0.5"
           data-quadrant="eureka"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Pranamya Patil  : +918850275505"
+          data-contact2="Shubham Waghadhare : +919920780107"
+          data-contact3=""></article>
 
         <article
           class="blip"
@@ -875,14 +708,17 @@ Maker's Square is a national event to put up your projects and exhibits ranging 
           data-title="RCMO"
           data-register="/rcmo-register"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="VJTI and Technovanza are proud to present you RCMO (Rubik’s Cube Mumbai Open) an International Cubing Competition hosted by VJTI during the three days of TECHNOVANZA, the national level techno-management festival. RCMO welcomes cubers from all over the country to showcase their speed cubing skills at the largest cubing competition in the country.
 RCMO along with the WORLD CUBING ASSOCIATION (WCA) governs all the competitions for puzzles labelled as Rubik puzzles, and all other puzzles that are played by twisting the sides, so called twisty puzzles."
           data-author="RCMO"
           data-angle="270"
           data-distance="0.9"
           data-quadrant="eureka"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Vinay Kathole  : +918007766638"
+          data-contact2="Muskan Idrisi : +918898162653"
+          data-contact3=""></article>
     </section>
 
     <section class="radar__chart__online"> <!-- adopt-ring !-->
@@ -901,7 +737,10 @@ RCMO along with the WORLD CUBING ASSOCIATION (WCA) governs all the competitions 
           data-register="/codeinx-register"
           data-distance="0.66"
           data-quadrant="online"
-          data-status="new"></article>
+          data-status="new"
+          data-contact1="Deepankar Gehlot  : +919527319074"
+          data-contact2=""
+          data-contact3=""></article>
 
              <article
           class="blip"
@@ -917,7 +756,10 @@ Are you ready to change your thinking radically to solve our most difficult prob
           data-distance="0.2"
           data-quadrant="online"
           data-status="new"
-         ></article>
+          data-date="The Event has ended!"
+          data-contact1="Deepankar Gehlot  : +919527319074"
+          data-contact2=""
+          data-contact3=""></article>
 
              <article
           class="blip"
@@ -932,7 +774,10 @@ Are you ready to change your thinking radically to solve our most difficult prob
           data-distance="0.5"
           data-quadrant="online"
           data-status="new"
-         ></article>
+          data-date="Coming Soon!"
+          data-contact1="Deepankar Gehlot  : +919527319074"
+          data-contact2=""
+          data-contact3=""></article>
 
              <article
           class="blip"
@@ -946,10 +791,13 @@ Do you believe that the Stock Market is where you belong? BRACE YOURSELF.
 Here comes the simulation of it i.e. VIRTUAL STOCK MARKET game presented by Technovanza in association with Endeavor . It is an exciting opportunity to show your investment skills and win prizes by playing this game."
           data-author="VSM"
           data-angle="190"
-          data-distance="0.97"
+          data-distance="0.70"
           data-quadrant="online"
           data-status="new"
-         ></article>
+          data-date="Coming Soon!"
+          data-contact1="Deepankar Gehlot  : +919527319074"
+          data-contact2=""
+          data-contact3=""></article>
 
              <article
           class="blip"
@@ -965,17 +813,20 @@ Riddles, Puzzles, Codes and Ciphers,calling out to all crusaders, trivia hunters
 A hotly contested leaderboard, an adrenaline-fueled Facebook forum and a cryptic gameplay, all promise to make this pursuit worthy of the raiders of Myst, as participants battle day in and day outfor four days, conquering obstacles in a race for the ultimate treasure!"
           data-author="Myst"
           data-angle="244"
-          data-distance="0.84"
+          data-distance="0.65"
           data-quadrant="online"
           data-status="new"
-         ></article>
+          data-date="Coming Soon!"
+          data-contact1="Deepankar Gehlot  : +919527319074"
+          data-contact2=""
+          data-contact3=""></article>
 
              <article
           class="blip"
           data-ring="Online Events"
           data-title="CrypText"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="Put on your thinking caps, gear up your mind, get your magnifying glasses and sharpen your deduction skills… We present you our very own Murder Mystery in “Cryptext 2017”.
 Decrypt your way into suspect profiles and clues and forensic analysis of murder weapons to find the culprit in this adventure filled event…"
           data-author="cryptext"
@@ -984,14 +835,17 @@ Decrypt your way into suspect profiles and clues and forensic analysis of murder
           data-register="/cryptext-register"
           data-quadrant="online"
           data-status="new"
-         ></article>
+          data-date="Coming Soon!"
+          data-contact1="Deepankar Gehlot  : +919527319074"
+          data-contact2=""
+          data-contact3=""></article>
 
         <article
           class="blip"
           data-ring="Online Events"
           data-title="IOT"
           data-link-text="Download Problem Statement"
-          data-link-url="#"
+          data-link-url=""
           data-description="IOT will contain questions about various activities which are performed on internet. It doesn’t require any programming knowledge or technical skill.
 It will test how much you know about internet and things which it contain that is information."
           data-author="IOT"
@@ -1000,7 +854,10 @@ It will test how much you know about internet and things which it contain that i
           data-quadrant="online"
           data-status="new"
           data-register="/iot-register"
-          ></article>
+          data-date="Coming Soon!"
+          data-contact1="Deepankar Gehlot  : +919527319074"
+          data-contact2=""
+          data-contact3=""></article>
     </section>
   </div>
 </div>

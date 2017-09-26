@@ -158,6 +158,20 @@ app.get('/robosumo-register',(req,res)=>{
 app.get('/robosumo-register',(req,res)=>{
 });
 
+//robomaze
+app.get('/robomaze-register',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/public/register/robomaze-register.html'));
+});
+app.get('/robomaze-register',(req,res)=>{
+});
+
+//drone
+app.get('/drone-register',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/public/register/drone-register.html'));
+});
+app.get('/drone-register',(req,res)=>{
+});
+
 
 
 //robowars
