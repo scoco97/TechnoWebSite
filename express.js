@@ -2,10 +2,12 @@ var express = require('express')
 var session = require('express-session')
 var url = require('url')
 var path = require('path')
+var compression = require('compression')
 var bodyParser = require('body-parser')
 var app = express()
 app.set('view engine', 'pug')
 
+app.use(compression());
 app.use(express.static('public'));
 app.use(express.static('public/homepage',{ extensions: ['html'] }));
 app.use(express.static('public/ourTeam',{ extensions: ['html'] }));

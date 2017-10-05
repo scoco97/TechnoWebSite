@@ -109,7 +109,7 @@ new Chart(document.getElementById("house-cup-bar"), {
 new Chart(document.getElementById("college-cup-bar"), {
     type: 'horizontalBar',
     data: {
-      labels: ["SPIT, Mumbai", "COEP, Pune", "K.J Somaiya"],
+      labels: ["College1", "College2", "College3"],
       datasets: [
         {
           label: "Current Score ",

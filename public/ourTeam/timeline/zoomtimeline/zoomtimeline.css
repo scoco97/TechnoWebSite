@@ -33,7 +33,8 @@
   .zoomtimeline .the-heading {
     margin-bottom: 20px; }
   .zoomtimeline p {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    }
   .zoomtimeline .scroller-con.skin_luna {
     margin-bottom: 0px; }
     .zoomtimeline .scroller-con.skin_luna .scrollbar {
@@ -415,7 +416,8 @@
         transition-timing-function: ease-out;
         font-family: Raleway, "Open Sans",serif; }
         .zoomtimeline.mode-3dslider .details-container > .detail .detail-excerpt p {
-          line-height: 1.7; }
+          /* line-height: 1.7; */
+          }
       .zoomtimeline.mode-3dslider .details-container > .detail > .the-heading {
         color: #ffffff;
         transform: rotateY(0deg) scale(1) translate3d(0, 0, 0);

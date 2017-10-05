@@ -5,12 +5,16 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "compression": "^1.7.1",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "google-auth-library": "^0.11.0",
+    "google-sheets-node-api": "^0.3.0",
+    "google-spreadsheet": "^2.0.4",
     "googleapis": "^21.3.0",
     "mysql": "^2.14.1",
-    "node-pre-gyp": "^0.6.36",
     "node-gyp": "^3.6.2",
+    "node-pre-gyp": "^0.6.36",
     "pug": "^2.0.0-rc.3"
   },
   "devDependencies": {},
