@@ -727,9 +727,9 @@ app.post('/makerssquare-register',(req,res)=>{
 app.get('/robomaze-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/robomaze-register.html'));
 });
-app.get('/robomaze-register',(req,res)=>{
+app.post('/robomaze-register',(req,res)=>{
   let teamName = req.body.team_name;
-let leadername = req.body.leader_fullname;
+  let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
   let member2name = req.body.member_2;
@@ -743,7 +743,7 @@ let leadername = req.body.leader_fullname;
 
 
    var insertData= [];
-   insertData.push(teamName);
+  insertData.push(teamName);
   insertData.push(leadername);
   insertData.push(leaderemail);
   insertData.push(leadercontact);
@@ -771,7 +771,7 @@ let leadername = req.body.leader_fullname;
 app.get('/drone-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/drone-register.html'));
 });
-app.get('/drone-register',(req,res)=>{
+app.post('/drone-register',(req,res)=>{
   let teamName = req.body.team_name;
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
@@ -817,7 +817,7 @@ app.get('/drone-register',(req,res)=>{
 app.get('/fastnfurious-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/fastnfurious-register.html'));
 });
-app.get('/fastnfurious-register',(req,res)=>{
+app.post('/fastnfurious-register',(req,res)=>{
   let teamName = req.body.team_name;
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
@@ -972,7 +972,7 @@ app.post('/sherlocked-register',(req,res)=>{
 app.get('/smartcity-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/smartcity-register.html'));
 });
-app.get('/smartcity-register',(req,res)=>{
+app.post('/smartcity-register',(req,res)=>{
   let teamName = req.body.team_name;
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
