@@ -6,11 +6,7 @@ const login = require('./functions/login')
 const signup = require('./functions/signup')
 const sendData = require('./index_add.js');
 
-<<<<<<< HEAD
 app.use(compression());
-=======
-
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname + '/public/homepage/homepage.html'));
 });
@@ -31,12 +27,9 @@ app.get('/aqua-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/aqua-register.html'));
 });
 app.post('/aqua-register',(req,res)=>{
-<<<<<<< HEAD
   console.log(req.body); 
   
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -45,7 +38,6 @@ app.post('/aqua-register',(req,res)=>{
   let member4name = req.body.member_4;
   let collegename = req.body.collegeName;
   let house = req.body.House;
-<<<<<<< HEAD
   
   var insertData = [];
   insertData.push(teamName);
@@ -67,10 +59,6 @@ app.post('/aqua-register',(req,res)=>{
   }).catch((error)=>{
       console.error(error);
   });
-=======
-  console.log(req.body); 
-
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 
 });
 
@@ -81,10 +69,7 @@ app.get('/climb-e-rope-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/climb-e-rope.html'));
 });
 app.post('/climb-e-rope-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -95,7 +80,6 @@ app.post('/climb-e-rope-register',(req,res)=>{
   console.log(req.body); 
 
 
-<<<<<<< HEAD
  var insertData = [];
   insertData.push(teamName);
   insertData.push(leadername);
@@ -117,8 +101,6 @@ app.post('/climb-e-rope-register',(req,res)=>{
   });
 
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -136,7 +118,6 @@ app.post('/codeinx-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -156,8 +137,6 @@ app.post('/codeinx-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -173,7 +152,6 @@ app.post('/coderoyale-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -191,8 +169,6 @@ app.post('/coderoyale-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -201,7 +177,6 @@ app.get('/codeswap-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/codeswap-register.html'));
 });
 app.post('/codeswap-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
   let leadername = req.body.member_1;
   let leaderemail = req.body.email_1;
@@ -232,17 +207,6 @@ app.post('/codeswap-register',(req,res)=>{
   }).catch((error)=>{
       console.error(error);
   });
-=======
-  let leadername = req.body.member_1;
-  let leaderemail = req.body.email_1;
-  let leadercontact = req.body.contact_1;
-  let member2name = req.body.member_2;
-  let member3name = req.body.email_2;
-  let member4name = req.body.contact_2;
-  let collegename = req.body.collegeName;
-  let house = req.body.House;
-  console.log(req.body); 
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 
 });
 
@@ -258,7 +222,6 @@ app.post('/cryptext-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -278,8 +241,6 @@ app.post('/cryptext-register',(req,res)=>{
   });
 
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -294,7 +255,6 @@ app.post('/cway-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -313,8 +273,6 @@ app.post('/cway-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -324,10 +282,7 @@ app.get('/ic-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/ic-register.html'));
 });
 app.post('/ic-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
    let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -339,7 +294,6 @@ app.post('/ic-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData= [];
   insertData.push(teamName);
@@ -364,8 +318,6 @@ app.post('/ic-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -380,7 +332,6 @@ app.post('/bridgethegap-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -399,8 +350,6 @@ app.post('/bridgethegap-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -415,7 +364,6 @@ app.post('/iot-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -433,8 +381,6 @@ app.post('/iot-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -450,7 +396,6 @@ app.post('/javaguru-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -469,8 +414,6 @@ app.post('/javaguru-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -480,10 +423,7 @@ app.get('/maze-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/maze-register.html'));
 });
 app.post('/maze-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -492,7 +432,6 @@ app.post('/maze-register',(req,res)=>{
   let member4name = req.body.member_4;
   let collegename = req.body.collegeName;
   let house = req.body.House;
-<<<<<<< HEAD
   console.log(req.body);
 
   var insertData = [];
@@ -516,9 +455,6 @@ app.post('/maze-register',(req,res)=>{
   });
 
  
-=======
-  console.log(req.body); 
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -533,7 +469,6 @@ app.post('/missionsql-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -550,8 +485,6 @@ app.post('/missionsql-register',(req,res)=>{
   }).catch((error)=>{
       console.error(error);
   });
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -566,7 +499,6 @@ app.post('/rcmo-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -584,8 +516,6 @@ app.post('/rcmo-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -594,10 +524,7 @@ app.get('/monsterarena-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/monsterarena-register.html'));
 });
 app.post('/monsterarena-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -607,7 +534,6 @@ app.post('/monsterarena-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body); 
-<<<<<<< HEAD
 
 
   var insertData = [];
@@ -631,8 +557,6 @@ app.post('/monsterarena-register',(req,res)=>{
   });
 
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -648,7 +572,6 @@ app.post('/myst-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -667,8 +590,6 @@ app.post('/myst-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -677,10 +598,7 @@ app.get('/robosoccer-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/robosoccer-register.html'));
 });
 app.post('/robosoccer-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -690,7 +608,6 @@ app.post('/robosoccer-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body); 
-<<<<<<< HEAD
 
   var insertData = [];
   insertData.push(teamName);
@@ -713,8 +630,6 @@ app.post('/robosoccer-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -723,10 +638,7 @@ app.get('/robosumo-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/robosumo-register.html'));
 });
 app.post('/robosumo-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -739,7 +651,6 @@ app.post('/robosumo-register',(req,res)=>{
   let house = req.body.House;
   console.log(req.body);
 
-<<<<<<< HEAD
    var insertData= [];
   insertData.push(teamName);
   insertData.push(leadername);
@@ -763,33 +674,10 @@ app.post('/robosumo-register',(req,res)=>{
   });
 
 
-=======
-});
-
-
-
-//makerssquare
-app.get('makerssquare-register',(req,res)=>{
-    res.sendFile(path.join(__dirname + '/public/register/robosumo-register.html'));
-});
-app.post('/makerssquare-register',(req,res)=>{
-  let leadername = req.body.leader_fullname;
-  let leaderemail = req.body.email;
-  let leadercontact = req.body.contact;
-  let member2name = req.body.member_2;
-  let member3name = req.body.member_3;
-  let member4name = req.body.member_4;
-  let member5name = req.body.member_5;
-  let member6name = req.body.member_6;
-  let collegename = req.body.collegeName;
-  let house = req.body.House;
-  console.log(req.body);
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 
 });
 
 
-<<<<<<< HEAD
 
 //makerssquare
 app.get('makerssquare-register',(req,res)=>{
@@ -835,17 +723,12 @@ app.post('/makerssquare-register',(req,res)=>{
 });
 
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 //robomaze
 app.get('/robomaze-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/robomaze-register.html'));
 });
 app.get('/robomaze-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -857,7 +740,6 @@ let leadername = req.body.leader_fullname;
   let collegename = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);  
-<<<<<<< HEAD
 
 
    var insertData= [];
@@ -883,8 +765,6 @@ let leadername = req.body.leader_fullname;
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 //drone
@@ -892,12 +772,8 @@ app.get('/drone-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/drone-register.html'));
 });
 app.get('/drone-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
   let leadername = req.body.leader_fullname;
-=======
-    let leadername = req.body.leader_fullname;
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
   let member2name = req.body.member_2;
@@ -908,7 +784,6 @@ app.get('/drone-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
     console.log(req.body);
-<<<<<<< HEAD
 
 
    var insertData= [];
@@ -934,8 +809,6 @@ app.get('/drone-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -945,12 +818,8 @@ app.get('/fastnfurious-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/fastnfurious-register.html'));
 });
 app.get('/fastnfurious-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
   let leadername = req.body.leader_fullname;
-=======
-    let leadername = req.body.leader_fullname;
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
   let member2name = req.body.member_2;
@@ -961,7 +830,6 @@ app.get('/fastnfurious-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
     console.log(req.body);
-<<<<<<< HEAD
 
 
    var insertData= [];
@@ -988,8 +856,6 @@ app.get('/fastnfurious-register',(req,res)=>{
   });
 
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -999,12 +865,8 @@ app.get('/robowars-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/robowars-register.html'));
 });
 app.post('/robowars-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
   let leadername = req.body.leader_fullname;
-=======
-   let leadername = req.body.leader_fullname;
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
   let member2name = req.body.member_2;
@@ -1016,7 +878,6 @@ app.post('/robowars-register',(req,res)=>{
   let house = req.body.House;
     console.log(req.body);
 
-<<<<<<< HEAD
 
    var insertData= [];
   insertData.push(teamName);
@@ -1040,8 +901,6 @@ app.post('/robowars-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -1056,7 +915,6 @@ app.post('/tpp-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -1074,8 +932,6 @@ app.post('/tpp-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -1090,7 +946,6 @@ app.post('/sherlocked-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
    var insertData = [];
   insertData.push(name);
@@ -1109,8 +964,6 @@ app.post('/sherlocked-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -1120,10 +973,7 @@ app.get('/smartcity-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/smartcity-register.html'));
 });
 app.get('/smartcity-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -1133,7 +983,6 @@ app.get('/smartcity-register',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body); 
-<<<<<<< HEAD
 
   var insertData = [];
   insertData.push(teamName);
@@ -1154,8 +1003,6 @@ app.get('/smartcity-register',(req,res)=>{
   }).catch((error)=>{
       console.error(error);
   });
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 
 });
 
@@ -1169,7 +1016,6 @@ app.post('/technohunt-register',(req,res)=>{
 let leadername = req.body.member_1;
   let leaderemail = req.body.email_1;
   let leadercontact = req.body.contact_1;
-<<<<<<< HEAD
   let membername = req.body.member_2;
   let memberemail = req.body.email_2;
   let membercontact = req.body.contact_2;
@@ -1197,14 +1043,6 @@ let leadername = req.body.member_1;
       console.error(error);
   });
 
-=======
-  let member2name = req.body.member_2;
-  let member3name = req.body.email_2;
-  let member4name = req.body.contact_2;
-  let collegename = req.body.collegeName;
-  let house = req.body.House;
-  console.log(req.body);  
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -1220,7 +1058,6 @@ app.post('/ultimatecoder-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
 
    var insertData = [];
@@ -1241,8 +1078,6 @@ app.post('/ultimatecoder-register',(req,res)=>{
   });
 
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -1251,11 +1086,7 @@ app.get('/vrc-register',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/vrc-register.html'));
 });
 app.post('/vrc-register',(req,res)=>{
-<<<<<<< HEAD
   let teamName = req.body.team_name;
-=======
-
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -1268,7 +1099,6 @@ app.post('/vrc-register',(req,res)=>{
   let house = req.body.House;
     console.log(req.body);
 
-<<<<<<< HEAD
 
    var insertData= [];
    insertData.push(teamName);
@@ -1292,8 +1122,6 @@ app.post('/vrc-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
@@ -1308,7 +1136,6 @@ app.post('/vsm-register',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   console.log(req.body);
-<<<<<<< HEAD
 
   var insertData = [];
   insertData.push(name);
@@ -1327,8 +1154,6 @@ app.post('/vsm-register',(req,res)=>{
       console.error(error);
   });
 
-=======
->>>>>>> 1477cd13c0e9ea9e55ec84b09a3e5deb69820db0
 });
 
 
