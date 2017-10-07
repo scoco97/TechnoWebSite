@@ -15,7 +15,7 @@
   <!-- Chrome -->
   <meta name="theme-color" content="#282931"><!-- blue -->
   <!-- Safari -->
-  <link rel="mask-icon" color="#222222" href=" images/meta/favicon2.png">
+  <link rel="mask-icon" color="#282931" href=" images/meta/favicon2.png">
   <link rel="apple-touch-icon" href=" images/meta/favicon2.png">
 
 
@@ -93,9 +93,16 @@
 
 <body class="pre-intro">
 
-	<!-- PRELOADER STARTS -->
-    <div class="se-pre-con"></div>
-  <!-- PRELOADER ENDS -->
+ <!-- PRELOADER STARTS -->
+    <div id="loading">
+<div id="loading-center">
+<div id="loading-center-absolute">
+<div id="object"></div>
+</div>
+</div>
+
+</div>
+    <!-- PRELOADER ENDS -->
 
   <header class="cd-content header" role="banner" id="header">
     <!-- <a class="cd-logo" href="#0"><img src="img/cd-logo.svg" alt="Logo"></a> -->
@@ -295,7 +302,7 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-ring="Autobots"
           data-title="VRC"
           data-link-text="View Problem Statement"
-          data-link-url="/VRC_PS"
+          data-link-url="/VRC_DRAFT_1"
           data-description="Create your own Manual & Auto bots and compete on a demanding arena by
  completing the tasks assigned! The arena is sure to test your technical
  as well as creative skills so suit up & get in"
@@ -316,7 +323,7 @@ So folks, fight smart, be patient and pray. Seriously, pray because robowars jus
           data-ring="Autobots"
           data-title="Robomaze"
           data-link-text="View Problem Statement"
-          data-link-url="/Robomaze_PS"
+          data-link-url="/Robomaze_DRAFT_1"
           data-description="If you are one of those crazy puzzle lovers, we challenge you to build a
 manually controlled bot and drive it through complex mazes within
 as less time as possible."
@@ -337,7 +344,7 @@ as less time as possible."
           data-ring="Autobots"
           data-title="RoboSoccer"
           data-link-text="View Problem Statement"
-          data-link-url="/Robosoccer_PS"
+          data-link-url="/Robosoccer_DRAFT_1"
           data-description="Interested in football? And want to make it tech-savvy? 
 Make a manually controlled bot that can play football.
 Read the problem statement carefully and get ready for the battle.
@@ -359,7 +366,7 @@ Participate in this amazing event at Technovanza 2017."
           data-ring="Autobots"
           data-title="RoboSumo"
           data-link-text="View Problem Statement"
-          data-link-url="/Robosumo_PS"
+          data-link-url="/Robosumo_DRAFT_1"
           data-description="“Its not whether you get knocked down, it's whether you get up.’’ Be the first robot to push intentionally a opponent off the table OR be the last robot remaining on the table."
           data-author="robosumo"
           data-angle="240"
@@ -378,7 +385,7 @@ Participate in this amazing event at Technovanza 2017."
           data-ring="Autobots"
           data-title="Monster-Arena"
           data-link-text="View Problem Statement"
-          data-link-url="/MonsterArena_PS"
+          data-link-url="/MonsterArena_DRAFT_1"
           data-description="Think your bot can take on any obstacles thrown at it? We give you a
  grueling track filled with a heady mix of obstacles to test your bot. 
 Toughen up and drive your bot through this Monster Arena to emerge the top dog."
@@ -400,7 +407,7 @@ Toughen up and drive your bot through this Monster Arena to emerge the top dog."
           data-ring="Autobots"
           data-title="Aqua Battle Front"
           data-link-text="View Problem Statement"
-          data-link-url="/Aqua_PS"
+          data-link-url="/Aqua_DRAFT_1"
           data-description="Do you believe in good moves? Because one wrong decision might be your last move! We at Technovanza introduce Aqua BattleFront, a robotic event where you with the help of your aquabot will complete required task in a real time battle with your opponent"
           data-author="aquabattle"
           data-angle="340"
@@ -924,34 +931,66 @@ It will test how much you know about internet and things which it contain that i
 </footer>
 
 <!-- PRELOADER STARTS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
     <style type="text/css">
-    .no-js #loader {
-        display: none;
-    }
+        #loading{
+background-color: #282931;
+height: 100%;
+width: 100%;
+position: fixed;
+z-index: 9999;
+margin-top: 0px;
+top: 0px;
+}
 
-    .js #loader {
-        display: block;
-        position: absolute;
-        left: 100px;
-        top: 0;
-    }
+#loading-center{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+}
 
-    .se-pre-con {
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 2000;
-        background: url(images/loader-64x/Preloader_4.gif) center no-repeat #fff;
-    }
+#object{
+    width: 80px;
+    height: 80px;
+    background-color: #FFF;
+    -webkit-animation: animate 1s infinite ease-in-out;
+    animation: animate 1s infinite ease-in-out;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 60px;
+}
+@-webkit-keyframes animate {
+  0% { -webkit-transform: perspective(160px); }
+  50% { -webkit-transform: perspective(160px) rotateY(-180deg); }
+  100% { -webkit-transform: perspective(160px) rotateY(-180deg) rotateX(-180deg); }
+}
+
+@keyframes animate {
+  0% { 
+    transform: perspective(160px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(160px) rotateX(0deg) rotateY(0deg); 
+  } 50% { 
+    transform: perspective(160px) rotateX(-180deg) rotateY(0deg);
+    -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(0deg) ;
+  } 100% { 
+    transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
+    -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
+  }
+}
     </style>
     <script type="text/javascript">
     $(window).load(function() {
         // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow","swing");
+        $("#loading").fadeOut("slow");
+        
     });
     </script>
 

@@ -5271,10 +5271,17 @@ h1 {
 </head>
 
 <body class="page-template-default page page-id-214">
-<!-- PRELOADER STARTS -->
-    <div class="se-pre-con"></div>
-    <!-- PRELOADER ENDS -->
+ <!-- PRELOADER STARTS -->
+    <div id="loading">
+<div id="loading-center">
+<div id="loading-center-absolute">
+<div id="object"></div>
+</div>
+</div>
 
+</div>
+    <!-- PRELOADER ENDS -->
+    
       <!-- NAVBAR STARTS -->
 
 <div class="outer-menu">
@@ -5591,34 +5598,66 @@ Blog with a passion or don’t blog at all!</p>
     <script type="text/javascript" src="technovanza.org/wp-content/themes/scripts/glide.min4963.js?ver=1.1"></script>
     <script type="text/javascript" src="technovanza.org/wp-content/themes/scripts/socialInitiatives.js"></script>
    
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js"></script>
     <style type="text/css">
-    .no-js #loader {
-        display: none;
-    }
+        #loading{
+background-color: #282931;
+height: 100%;
+width: 100%;
+position: fixed;
+z-index: 9999;
+margin-top: 0px;
+top: 0px;
+}
 
-    .js #loader {
-        display: block;
-        position: absolute;
-        left: 100px;
-        top: 0;
-    }
+#loading-center{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+}
 
-    .se-pre-con {
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        background: url(img/loader-64x/Preloader_4.gif) center no-repeat #fff;
-    }
+#object{
+    width: 80px;
+    height: 80px;
+    background-color: #FFF;
+    -webkit-animation: animate 1s infinite ease-in-out;
+    animation: animate 1s infinite ease-in-out;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 60px;
+}
+@-webkit-keyframes animate {
+  0% { -webkit-transform: perspective(160px); }
+  50% { -webkit-transform: perspective(160px) rotateY(-180deg); }
+  100% { -webkit-transform: perspective(160px) rotateY(-180deg) rotateX(-180deg); }
+}
+
+@keyframes animate {
+  0% { 
+    transform: perspective(160px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(160px) rotateX(0deg) rotateY(0deg); 
+  } 50% { 
+    transform: perspective(160px) rotateX(-180deg) rotateY(0deg);
+    -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(0deg) ;
+  } 100% { 
+    transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
+    -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
+  }
+}
     </style>
     <script type="text/javascript">
     $(window).load(function() {
         // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");;
+        $("#loading").fadeOut("slow");
+        
     });
     </script>
 </body>
