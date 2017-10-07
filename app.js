@@ -1185,8 +1185,36 @@ app.get('/socialInitiatives',function(req,res){
   res.sendFile(path.join(__dirname + '/public/ourTeam/socialInitiatives.html'));
 });
 
-app.get('/VRC_Problem_Statement',function(req,res){
-  res.sendFile(path.join(__dirname + '/public/downloads/VRC_Problem_Statement.pdf'));
+
+// EVENT PROBLEM STATEMENTS
+app.get('/VRC_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/VRC 2017_Draft-1.pdf'));
+});
+
+app.get('/Robosumo_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/RoboSumo 2017_Draft-1.pdf'));
+});
+
+app.get('/Robosoccer_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Robosoccer 2017_Draft-1.pdf'));
+});
+
+app.get('/Robomaze_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Robomaze 2017_Draft-1.pdf'));
+});
+
+app.get('/MonsterArena_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Monster Arena 2017_Draft-1.pdf'));
+});
+
+app.get('/Fast-N-Furious_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Fast N Furious 2017_Draft-1.pdf'));
+});
+app.get('/Climb-E-Rope_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Climb-E-Rope 2017_Draft-1.pdf'));
+});
+app.get('/Aqua_PS',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Aqua Battlefront 2017_Draft-1.pdf'));
 });
 
 app.listen(process.env.PORT||3000, function() {
