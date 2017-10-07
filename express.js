@@ -25,16 +25,6 @@ app.use(bodyParser.urlencoded({
 
 app.set('trust proxy', 1) // trust first proxy
 
-app.use (function (req, res, next) {
-        if (req.secure) {
-                // request was via https, so do no special handling
-                next();
-        } else {
-                // request was via http, so redirect to https
-                res.redirect('https://' + req.headers.host + req.url);
-        }
-}); 
-
 app.use(session({
   //key: 'user_sid',
   secret: 'the_dawn_of_tech_is_here',

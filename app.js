@@ -5,8 +5,14 @@ const compression = require('compression');
 const login = require('./functions/login')
 const signup = require('./functions/signup')
 const sendData = require('./index_add.js');
-
+const forceDomain = require('./forcedomain');
 app.use(compression());
+
+app.use(forceDomain({
+  hostname: 'www.technovanza.com',
+  protocol: 'https'
+}));
+
 app.get('/ca', function(req,res){
   res.redirect('https://ca.technovanza.org/index.php')
 });
