@@ -7,6 +7,10 @@ const signup = require('./functions/signup')
 const sendData = require('./index_add.js');
 
 app.use(compression());
+app.get('/ca', function(req,res){
+  res.redirect('https://ca.technovanza.org')
+});
+
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname + '/public/homepage/homepage.html'));
 });
