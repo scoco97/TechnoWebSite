@@ -1185,9 +1185,9 @@ app.get('/socialInitiatives',function(req,res){
   res.sendFile(path.join(__dirname + '/public/ourTeam/socialInitiatives.html'));
 });
 
-// app.get('/VRC_Problem_Statement',function(req,res){
-//   res.sendFile(path.join(__dirname + '/public/downloads/VRC_Problem_Statement.pdf'));
-// });
+app.get('/VRC_Problem_Statement',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/VRC_Problem_Statement.pdf'));
+});
 
 app.listen(process.env.PORT||3000, function() {
   console.log('Example app listening on port 3000!')

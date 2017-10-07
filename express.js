@@ -14,7 +14,7 @@ app.use(express.static('public/ourTeam',{ extensions: ['html'] }));
 app.use(express.static('public/events/radar', {extensions: ['html']}));
 app.use(express.static('public/gallery',{extensions: ['html']}));
 app.use(express.static('public/register',{extensions: ['html']}));
-// app.use(express.static('public/downloads',{extensions: ['html']}));
+app.use(express.static('public/downloads',{extensions: ['html']}));
 
 
 app.use(bodyParser.json()); // support json encoded bodies
