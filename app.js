@@ -443,9 +443,9 @@ app.post('/maze',(req,res)=>{
   insertData.push(leadername);
   insertData.push(leaderemail);
   insertData.push(leadercontact);
-  insertData.push(member_2);
-  insertData.push(member_3);
-  insertData.push(member_4);
+  insertData.push(member2name);
+  insertData.push(member3name);
+  insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
 
@@ -545,9 +545,9 @@ app.post('/monsterarena',(req,res)=>{
   insertData.push(leadername);
   insertData.push(leaderemail);
   insertData.push(leadercontact);
-  insertData.push(member_2);
-  insertData.push(member_3);
-  insertData.push(member_4);
+  insertData.push(member2name);
+  insertData.push(member3name);
+  insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
 
@@ -993,9 +993,9 @@ app.post('/smartcity',(req,res)=>{
   insertData.push(leadername);
   insertData.push(leaderemail);
   insertData.push(leadercontact);
-  insertData.push(member_2);
-  insertData.push(member_3);
-  insertData.push(member_4);
+  insertData.push(member2name);
+  insertData.push(member3name);
+  insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
 
