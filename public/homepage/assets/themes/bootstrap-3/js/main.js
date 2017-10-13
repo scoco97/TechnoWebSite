@@ -270,7 +270,7 @@ function initMap() {
             lng: 72.852599
         },
         map: map,
-        icon: '/images/map_pin.png',
+        // icon: '/images/map_pin.png',
         url: "https://www.google.com/maps/place/10100+W+87th+St,+Overland+Park,+KS+66212/@,19.0231010,72.852599,17z/data=!3m1!4b1!4m13!1m7!3m6!1s0x87c0eb612d6e7ec1:0x1d6a539ffbf3cc82!2s10100+W+87th+St,+Overland+Park,+KS+66212!3b1!8m2!3d38.9714211!4d-94.7038876!3m4!1s0x87c0eb612e0814db:0xbcfa3eceddab4321!8m2!3d38.9714189!4d-94.7038899"
     });
     marker.addListener('click', function() {
