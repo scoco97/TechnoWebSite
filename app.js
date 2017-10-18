@@ -365,16 +365,20 @@ app.post('/iot',(req,res)=>{
  let name = req.body.fullname;
   let email = req.body.email;
   let contact = req.body.contact;
+  let branchName = req.body.branchName;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let ca = req.body.caCode;
   console.log(req.body);
 
-   var insertData = [];
+  var insertData = [];
   insertData.push(name);
   insertData.push(email);
   insertData.push(contact);
+  insertData.push(branchName);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(ca);
   
   sendData('IOT',insertData)
   .then((data)=>{
