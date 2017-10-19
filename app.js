@@ -405,7 +405,7 @@ app.post('/javaguru',(req,res)=>{
   let house = req.body.House;
   console.log(req.body);
 
-   var insertData = [];
+  var insertData = [];
   insertData.push(name);
   insertData.push(email);
   insertData.push(contact);
