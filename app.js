@@ -1218,7 +1218,8 @@ app.get('/MonsterArena_DRAFT_1',function(req,res){
 app.get('/Fast-N-Furious_DRAFT_1',function(req,res){
   res.sendFile(path.join(__dirname + '/public/downloads/Fast N Furious 2017_Draft-1.pdf'));
 });
-app.get('/Climb-E-Rope_PDRAFT_1',function(req,res){
+
+app.get('/Climb-E-Rope_DRAFT_1',function(req,res){
   res.sendFile(path.join(__dirname + '/public/downloads/Climb-E-Rope 2017_Draft-1.pdf'));
 });
 app.get('/Aqua_DRAFT_1',function(req,res){
