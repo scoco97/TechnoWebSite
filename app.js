@@ -688,10 +688,12 @@ app.post('/robosumo',(req,res)=>{
 
 
 //makerssquare
-app.get('makerssquare',(req,res)=>{
-    res.sendFile(path.join(__dirname + '/public/register/robosumo-register.html'));
+app.get('/makerssquare',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/public/register/makerssquare-register.html'));
 });
+
 app.post('/makerssquare',(req,res)=>{
+  let teamName = req.body.teamName;
   let leadername = req.body.leader_fullname;
   let leaderemail = req.body.email;
   let leadercontact = req.body.contact;
@@ -707,6 +709,7 @@ app.post('/makerssquare',(req,res)=>{
 
 
    var insertData= [];
+  insertData.push(teamName);
   insertData.push(leadername);
   insertData.push(leaderemail);
   insertData.push(leadercontact);
@@ -1021,6 +1024,7 @@ app.get('/technohunt',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/technohunt-register.html'));
 });
 app.post('/technohunt',(req,res)=>{
+  let teamName = req.body.team_name;
 let leadername = req.body.member_1;
   let leaderemail = req.body.email_1;
   let leadercontact = req.body.contact_1;
@@ -1033,6 +1037,7 @@ let leadername = req.body.member_1;
 
 
    var insertData= [];
+   insertData.push(teamName);
   insertData.push(leadername);
   insertData.push(leaderemail);
   insertData.push(leadercontact);
