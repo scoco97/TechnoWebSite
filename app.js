@@ -496,7 +496,7 @@ app.post('/javaguru',(req,res)=>{
   .then((data)=>{
     console.log(data);
     if (data === 1) {
-       
+      res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        
     }
   }).catch((error)=>{
       console.error(error);
