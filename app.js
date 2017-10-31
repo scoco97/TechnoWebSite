@@ -5,6 +5,25 @@ const compression = require('compression');
 const login = require('./functions/login')
 const signup = require('./functions/signup')
 const sendData = require('./index_add.js');
+const transporter = require('./mailer.js');
+var nodemailer = require('nodemailer');
+
+var mailer = (mailData) => {
+const mailOptions = {
+  from: 'yash.jain@technovanza.org', 
+  to: mailData.email,
+  subject: 'Registration Successful | Technovanza 2017-18',
+  html: '<p>Hi ' + mailData.name + ', <br/> Thank You for registering for ' + mailData.eventName +'.<br/> Your Registration was successful. <br/>Kindly keep this mail as proof for your registration. <br/> Thank You, Wish you have a great time at Technovanza 2017-18 during 26th-28th December, 2017. <br/><br/>Regards, <br/>Team Technovanza 2017-18</p>'
+};
+
+transporter.sendMail(mailOptions, function (err, info) {
+   if(err)
+     console.log(err)
+   else
+     console.log(info);
+});
+}
+
 
 app.use(compression());
 app.get('/ca', function(req,res){
@@ -64,6 +83,13 @@ app.post('/aqua',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Aqua Battle Front'
+  };
+  mailer(mailData);
+
 });
 
 
@@ -104,7 +130,12 @@ app.post('/climb-e-rope',(req,res)=>{
       console.error(error);
   });
 
-
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Climb-E-Rope'
+  };
+  mailer(mailData);
 });
 
 
@@ -141,6 +172,13 @@ app.post('/codeinx',(req,res)=>{
       console.error(error);
   });
 
+    var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Code-In-X'
+  };
+  mailer(mailData);
+
 });
 
 
@@ -173,6 +211,12 @@ app.post('/coderoyale',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'CodeRoyale'
+  };
+  mailer(mailData);
 });
 
 
@@ -212,6 +256,12 @@ app.post('/codeswap',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'CodeSwap'
+  };
+  mailer(mailData);
 });
 
 
@@ -244,6 +294,12 @@ app.post('/cryptext',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Cryptext'
+  };
+  mailer(mailData);
 
 });
 
@@ -277,6 +333,12 @@ app.post('/cway',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'C-Way'
+  };
+  mailer(mailData);
 });
 
 
@@ -322,6 +384,12 @@ app.post('/ic',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Fast & Furious'
+  };
+  mailer(mailData);
 });
 
 
@@ -354,6 +422,12 @@ app.post('/bridgethegap',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Bridge The Gap'
+  };
+  mailer(mailData);
 });
 
 
@@ -389,6 +463,12 @@ app.post('/iot',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'IOT'
+  };
+  mailer(mailData);
 });
 
 
@@ -422,6 +502,12 @@ app.post('/javaguru',(req,res)=>{
       console.error(error);
   });
 
+    var mailData = {
+    name : name,
+    email : email,
+    eventName : 'JavaGuru'
+  };
+  mailer(mailData);
 });
 
 
@@ -461,7 +547,12 @@ app.post('/maze',(req,res)=>{
   }).catch((error)=>{
       console.error(error);
   });
-
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Robomaze'
+  };
+  mailer(mailData);
  
 });
 
@@ -493,6 +584,12 @@ app.post('/missionsql',(req,res)=>{
   }).catch((error)=>{
       console.error(error);
   });
+    var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Mission Sql'
+  };
+  mailer(mailData);
 });
 
 
@@ -524,6 +621,12 @@ app.post('/rcmo',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'RCMO'
+  };
+  mailer(mailData);
 });
 
 
@@ -564,7 +667,12 @@ app.post('/monsterarena',(req,res)=>{
       console.error(error);
   });
 
-
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Monster Arena'
+  };
+  mailer(mailData);
 });
 
 
@@ -598,6 +706,12 @@ app.post('/myst',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Myst'
+  };
+  mailer(mailData);
 });
 
 
@@ -638,6 +752,12 @@ app.post('/robosoccer',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Robo-Soccer'
+  };
+  mailer(mailData);
 });
 
 
@@ -681,7 +801,12 @@ app.post('/robosumo',(req,res)=>{
       console.error(error);
   });
 
-
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Robo-Sumo'
+  };
+  mailer(mailData);
 
 });
 
@@ -706,8 +831,6 @@ app.post('/makerssquare',(req,res)=>{
   let house = req.body.House;
   console.log(req.body);
 
-
-
    var insertData= [];
   insertData.push(teamName);
   insertData.push(leadername);
@@ -731,6 +854,12 @@ app.post('/makerssquare',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Makers Square'
+  };
+  mailer(mailData);
 });
 
 
@@ -776,6 +905,12 @@ app.post('/robomaze',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Robo-Maze'
+  };
+  mailer(mailData);
 });
 
 //drone
@@ -820,6 +955,12 @@ app.post('/drone',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Drone'
+  };
+  mailer(mailData);
 });
 
 
@@ -866,7 +1007,12 @@ app.post('/fastnfurious',(req,res)=>{
       console.error(error);
   });
 
-
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Fast-N-Furious'
+  };
+  mailer(mailData);
 });
 
 
@@ -912,6 +1058,12 @@ app.post('/robowars',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'RoboWars'
+  };
+  mailer(mailData);
 });
 
 
@@ -943,6 +1095,12 @@ app.post('/tpp',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Technical Paper Presentation'
+  };
+  mailer(mailData);
 });
 
 
@@ -975,6 +1133,12 @@ app.post('/sherlocked',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Sherlocked'
+  };
+  mailer(mailData);
 });
 
 
@@ -1015,6 +1179,12 @@ app.post('/smartcity',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'Smart City'
+  };
+  mailer(mailData);
 });
 
 
@@ -1056,6 +1226,12 @@ let leadername = req.body.member_1;
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'TechnoHunt'
+  };
+  mailer(mailData);
 });
 
 
@@ -1090,7 +1266,12 @@ app.post('/ultimatecoder',(req,res)=>{
       console.error(error);
   });
 
-
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Ultimate Coder'
+  };
+  mailer(mailData);
 });
 
 
@@ -1135,6 +1316,12 @@ app.post('/vrc',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : leadername,
+    email : leaderemail,
+    eventName : 'VRC'
+  };
+  mailer(mailData);
 });
 
 
@@ -1167,6 +1354,12 @@ app.post('/vsm',(req,res)=>{
       console.error(error);
   });
 
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Virtual Stock Market'
+  };
+  mailer(mailData);
 });
 
 
