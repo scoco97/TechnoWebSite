@@ -27,7 +27,7 @@ transporter.sendMail(mailOptions, function (err, info) {
 
 app.use(compression());
 app.get('/ca', function(req,res){
-  res.redirect('https://ca.technovanza.org/index.php')
+  res.redirect('https://www.ca.technovanza.org/index.php')
 });
 
 app.get('/',function(req,res){
