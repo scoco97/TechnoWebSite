@@ -1434,6 +1434,14 @@ app.get('/SmartCity_DRAFT_1',function(req,res){
   res.sendFile(path.join(__dirname + '/public/downloads/SmartCity 2017_Draft-1.pdf'));
 });
 
+app.get('/MakersSquare_DRAFT_1',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Makers Square 2017_Draft-1.pdf'));
+});
+
+app.get('/TPP_DRAFT_1',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/TPP 2017_Draft-1.pdf'));
+});
+
 app.listen(process.env.PORT||3000, function() {
   console.log('Example app listening on port 3000!')
 })
