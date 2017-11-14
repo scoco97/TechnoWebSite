@@ -1367,6 +1367,10 @@ app.get('/ourTeam', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/ourTeam/ourTeam.html'));
 });
 
+app.get('/workshops', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/ourTeam/workshops.html'));
+});
+
 app.get('/lectures',function(req,res){
   res.sendFile(path.join(__dirname + '/public/ourTeam/lectureSeries.html'));
 });
