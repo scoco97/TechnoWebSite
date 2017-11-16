@@ -6,8 +6,8 @@ var got = {
     slider: null,
     slider_api: null,
     houses: {
-        stark: 'Upcoming Workshops',
-        targaryen: 'Past Workshops',
+        stark: 'TCS Finorama',
+        targaryen: 'Stryker Technical Challenge',
         lannister: 'Techno Blog',
         baratheon: 'Workshops',
         tyrell: 'Design',

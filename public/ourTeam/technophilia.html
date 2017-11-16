@@ -252,7 +252,7 @@ h1 {
 .outer-menu .menu > div > div > ul > li {
   padding: 0;
   margin: 1em;
-  font-size: 24px;
+  font-size: 20px;
   display: block;
 }
 .outer-menu .menu > div > div > ul > li > a {
@@ -5292,10 +5292,11 @@ h1 {
     <div>
       <div>
         <ul>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="/">Home</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif; " href="/">Home</a></li>
           <li><a style="font-family: 'Open Sans', sans-serif;" href="/events">Events</a></li>
           <li><a style="font-family: 'Open Sans', sans-serif;" href="/competitions">Competitions</a></li>
-          <li><a style="font-family: 'Open Sans', sans-serif;" href="/workshops">Workshops And Technical Events</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif;" href="/hackathons">Hackathons And Technical Events</a></li>
+          <li><a style="font-family: 'Open Sans', sans-serif;" href="/workshops">Workshops</a></li>
           <li><a style="font-family: 'Open Sans', sans-serif;" href="/lectureSeries">Lecture Series</a></li>
           <li><a style="font-family: 'Open Sans', sans-serif;" href="/socialInitiatives">Social Initiatives</a></li>
           <li><a style="font-family: 'Open Sans', sans-serif;" href="/sponsors">Sponsors</a></li>
@@ -5332,14 +5333,14 @@ h1 {
                 <div class="got-tabs-container">
                     <div class="got-tabs is-sticky">
                         <div class="grid">
-                            <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
+                           <!--  <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
                                 <div class="got-tab  js-got-tab tablinks active is-active" data-house="stark" onclick="openDiv(event, 'hourglass')">
                                     <img src="technovanza.org/wp-content/themes/assets/hourglass.png" class="got-tab__icon">
                                     <p class="got-tab__name">Hour Glass</p>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
-                                <div class="got-tab  js-got-tab tablinks" data-house="targaryen" onclick="openDiv(event, 'poster')">
+                                <div class="got-tab  js-got-tab tablinks active is-active" data-house="targaryen" onclick="openDiv(event, 'poster')">
                                     <img src="technovanza.org/wp-content/themes/assets/idea.png" class="got-tab__icon">
                                     <p class="got-tab__name">Poster Series</p>
                                 </div>
@@ -5350,12 +5351,12 @@ h1 {
                                     <p class="got-tab__name">Blog</p>
                                 </div>
                             </div>
-                            <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
+                            <!-- <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
                                 <div class="got-tab  js-got-tab tablinks" data-house="baratheon" onclick="openDiv(event, 'workshops')">
                                     <img src="technovanza.org/wp-content/themes/assets/settings-gears.png" class="got-tab__icon">
                                     <p class="got-tab__name">Workshops</p>
                                 </div>
-                            </div>
+                            </div> -->
                            <!--  <div class="grid__item  one-half  tablet-one-third  laptop-one-sixth">
                                 <div class="got-tab  js-got-tab tablinks" data-house="tyrell" onclick="openDiv(event, 'lecture5')">
                                     <img src="technovanza.org/wp-content/themes/assets/tyrell-logo.png" class="got-tab__icon">
@@ -5373,6 +5374,7 @@ h1 {
                 </div>
             </div>
         </div>
+
         <div class="section  section--gray" id="got-data">
             <div class="got-house">
                 <div class="wrapper">
@@ -5386,10 +5388,8 @@ h1 {
                     <!-- <button class="glide__arrow prev" data&#45;glide&#45;dir="<">prev</button> -->
                     <!-- <button class="glide__arrow next" data&#45;glide&#45;dir=">">next</button> -->
                     <!-- </div> -->
-                    <div class="container tabcontent" id="hourglass" style="display: block;">
-<p class="card-text description" style="
-    color: #747373;
-">
+                    <div class="container tabcontent" id="hourglass" style="display: none;">
+                    <p class="card-text description" style=" color: #747373;">
 With a motto of Taking Technology to Society, we at Technovanza esteem and admire anyone who has persevered to bring about a change in the lives of the unwatched masses of the society. We honour and regard people who've been trendsetters and have paved a way for others to succeed through their exemplary altruistic work. These are the true heroes who came forward and dared to contribute in making a difference leaving aside mundane issues. As an initiative to make the young minds conversant with such estimable personalities, Technovanza brings to you The Hourglass - an effort to engender  consequential and purposeful scrutiny of myriad of ideas ranging from the most lucid thoughts to the esoteric concepts. Through Hourglass we aim to bring an eclectic crowd under one roof thereby leading to effective exchange of ideas.</p>
     <!--  <section class="row">
     <div class="col s12 m3 l2">
@@ -5422,7 +5422,8 @@ With a motto of Taking Technology to Society, we at Technovanza esteem and admir
                             </div>
                         </section> -->
                     </div>
-                    <div class="container tabcontent" id="poster" style="display: none;">
+
+                    <div class="container tabcontent" id="poster" style="display: block;">
                         <!--First row-->
                         <div class="row mt-5 wow ">
 
@@ -5674,9 +5675,11 @@ Blog with a passion or don’t blog at all!</p>
                             <!--/.First column-->
                         </div>
                     </div>
+
                     <div class="container tabcontent" id="workshops" style="display: none;">
                         <h1>Coming Soon!</h1>
                     </div>
+
                     <div class="container tabcontent" id="lecture5" style="display: none;">
                         <!--First row-->
                         <div class="row mt-5 wow">
@@ -5700,6 +5703,7 @@ Blog with a passion or don’t blog at all!</p>
                             <!--/.First column-->
                         </div>
                     </div>
+
                     <div class="container tabcontent" id="lecture6" style="display: none;">
                         <!--First row-->
                         <div class="row mt-5 wow">
