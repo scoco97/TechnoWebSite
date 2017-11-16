@@ -1511,8 +1511,8 @@ app.get('/SmartCity_DRAFT_1',function(req,res){
   res.sendFile(path.join(__dirname + '/public/downloads/SmartCity 2017_Draft-1.pdf'));
 });
 
-app.get('/MakersSquare_DRAFT_1',function(req,res){
-  res.sendFile(path.join(__dirname + '/public/downloads/Makers Square 2017_Draft-1.pdf'));
+app.get('/MakersSquare_DRAFT_2',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Makers Square 2017_Draft-2.pdf'));
 });
 
 app.get('/TPP_DRAFT_1',function(req,res){
