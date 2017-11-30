@@ -1202,6 +1202,43 @@ app.post('/sherlocked',(req,res)=>{
 });
 
 
+//trimble-bim-challenge
+app.get('/trimble-bim-contest',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/public/register/trimble-bim-contest-register.html'));
+});
+app.post('/trimble-bim-contest',(req,res)=>{
+  let name = req.body.fullname;
+  let email = req.body.email;
+  let contact = req.body.contact;
+  let collegeName = req.body.collegeName;
+  let house = req.body.House;
+  console.log(req.body);
+
+   var insertData = [];
+  insertData.push(name);
+  insertData.push(email);
+  insertData.push(contact);
+  insertData.push(collegeName);
+  insertData.push(house);
+  let caCode = req.body.caCode;
+  insertData.push(caCode);
+
+  sendData('TRIMBLE-BIM-CONTEST',insertData)
+  .then((data)=>{
+    if (data == 1) {
+        res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        
+    }
+  }).catch((error)=>{
+      console.error(error);
+  });
+
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Trimble-Bim-Contest'
+  };
+  mailer(mailData);
+});
 
 //smartcity
 app.get('/smartcity',(req,res)=>{
