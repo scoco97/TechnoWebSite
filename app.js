@@ -1515,8 +1515,8 @@ app.get('/VRC_DRAFT_1',function(req,res){
   res.sendFile(path.join(__dirname + '/public/downloads/VRC 2017_Draft-1.pdf'));
 });
 
-app.get('/Robosumo_DRAFT_1',function(req,res){
-  res.sendFile(path.join(__dirname + '/public/downloads/RoboSumo 2017_Draft-1.pdf'));
+app.get('/Robosumo_DRAFT_2',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/RoboSumo 2017_Draft-2.pdf'));
 });
 
 app.get('/Robosoccer_DRAFT_1',function(req,res){
@@ -1562,6 +1562,30 @@ app.get('/TPP_DRAFT_1',function(req,res){
 
 app.get('/strykerTechnicalChallenge',function(req,res){
   res.sendFile(path.join(__dirname + '/public/downloads/Stryker Technical Challenge - Problem Statement.pdf'));
+});
+
+app.get('/C-Way-problem-statement',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Cway 2017.pdf'));
+});
+
+app.get('/Codeswap-problem-statement',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Code Swap 2017.pdf'));
+});
+
+app.get('/Javaguru-problem-statement',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/JavaGuru 2017.pdf'));
+});
+
+app.get('/Mission-Sql-problem-statement',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Mission Sql 2017.pdf'));
+});
+
+app.get('/Technohunt-problem-statement',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Technohunt 2017.pdf'));
+});
+
+app.get('/Ultimate-Coder-problem-statement',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Ultimate Coder 2017.pdf'));
 });
 
 app.listen(process.env.PORT||3000, function() {
