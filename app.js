@@ -147,48 +147,48 @@ app.post('/climb-e-rope',(req,res)=>{
 
 
 
-//codeinx
-app.get('/codeinx',(req,res)=>{
-    res.sendFile(path.join(__dirname + '/public/register/codeinx-register.html'));
-});
+// //codeinx
+// app.get('/codeinx',(req,res)=>{
+//     res.sendFile(path.join(__dirname + '/public/register/codeinx-register.html'));
+// });
 
-app.post('/codeinx',(req,res)=>{
- let name = req.body.fullname;
-  let email = req.body.email;
-  let contact = req.body.contact;
-  let collegeName = req.body.collegeName;
-  let house = req.body.House;
-  console.log(req.body);
+// app.post('/codeinx',(req,res)=>{
+//  let name = req.body.fullname;
+//   let email = req.body.email;
+//   let contact = req.body.contact;
+//   let collegeName = req.body.collegeName;
+//   let house = req.body.House;
+//   console.log(req.body);
 
-   var insertData = [];
-  insertData.push(name);
-  insertData.push(email);
-  insertData.push(contact);
-  insertData.push(collegeName);
-  insertData.push(house);
-  insertData.push("codeinX");
+//    var insertData = [];
+//   insertData.push(name);
+//   insertData.push(email);
+//   insertData.push(contact);
+//   insertData.push(collegeName);
+//   insertData.push(house);
+//   insertData.push("codeinX");
 
-    let caCode = req.body.caCode;
-  insertData.push(caCode);
+//     let caCode = req.body.caCode;
+//   insertData.push(caCode);
   
-  sendData('CODE-IN-X',insertData)
-  .then((data)=>{
-    if (data == 1) {
-     res.redirect('/thankyou');
-      res.end();
-    }
-  }).catch((error)=>{
-      console.error(error);
-  });
+//   sendData('CODE-IN-X',insertData)
+//   .then((data)=>{
+//     if (data == 1) {
+//      res.redirect('/thankyou');
+//       res.end();
+//     }
+//   }).catch((error)=>{
+//       console.error(error);
+//   });
 
-    var mailData = {
-    name : name,
-    email : email,
-    eventName : 'Code-In-X'
-  };
-  mailer(mailData);
+//     var mailData = {
+//     name : name,
+//     email : email,
+//     eventName : 'Code-In-X'
+//   };
+//   mailer(mailData);
 
-});
+// });
 
 
 
@@ -717,43 +717,43 @@ app.post('/monsterarena',(req,res)=>{
 
 
 //myst
-app.get('/myst',(req,res)=>{
-    res.sendFile(path.join(__dirname + '/public/register/myst-register.html'));
-});
-app.post('/myst',(req,res)=>{
-   let name = req.body.fullname;
-  let email = req.body.email;
-  let contact = req.body.contact;
-  let collegeName = req.body.collegeName;
-  let house = req.body.House;
-  console.log(req.body);
+// app.get('/myst',(req,res)=>{
+//     res.sendFile(path.join(__dirname + '/public/register/myst-register.html'));
+// });
+// app.post('/myst',(req,res)=>{
+//    let name = req.body.fullname;
+//   let email = req.body.email;
+//   let contact = req.body.contact;
+//   let collegeName = req.body.collegeName;
+//   let house = req.body.House;
+//   console.log(req.body);
 
-   var insertData = [];
-  insertData.push(name);
-  insertData.push(email);
-  insertData.push(contact);
-  insertData.push(collegeName);
-  insertData.push(house);
+//    var insertData = [];
+//   insertData.push(name);
+//   insertData.push(email);
+//   insertData.push(contact);
+//   insertData.push(collegeName);
+//   insertData.push(house);
   
-  let caCode = req.body.caCode;
-  insertData.push(caCode);
+//   let caCode = req.body.caCode;
+//   insertData.push(caCode);
 
-  sendData('MYST',insertData)
-  .then((data)=>{
-    if (data == 1) {
-        res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        
-    }
-  }).catch((error)=>{
-      console.error(error);
-  });
+//   sendData('MYST',insertData)
+//   .then((data)=>{
+//     if (data == 1) {
+//         res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        
+//     }
+//   }).catch((error)=>{
+//       console.error(error);
+//   });
 
-  var mailData = {
-    name : name,
-    email : email,
-    eventName : 'Myst'
-  };
-  mailer(mailData);
-});
+//   var mailData = {
+//     name : name,
+//     email : email,
+//     eventName : 'Myst'
+//   };
+//   mailer(mailData);
+// });
 
 
 //robosoccer
