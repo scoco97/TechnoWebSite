@@ -17,7 +17,8 @@
     "node-gyp": "^3.6.2",
     "node-pre-gyp": "^0.6.36",
     "nodemailer": "^4.3.1",
-    "pug": "^2.0.0-rc.3"
+    "pug": "^2.0.0-rc.3",
+    "request": "^2.83.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -6,14 +6,33 @@ const login = require('./functions/login')
 const signup = require('./functions/signup')
 const sendData = require('./index_add.js');
 const transporter = require('./mailer.js');
+const request = require('request');
 var nodemailer = require('nodemailer');
+
+
+const generateCode = ()=>{
+  return null;
+};
+
+const sendSms = (smsData)=>{
+
+    //const code = generateCode();
+    const message = 'Hi ' + smsData.name + ', \nThank You for registering for ' + smsData.eventName +'. \nYour Registration was successful. \nKindly keep this message as proof for your registration. \nWish you have a great time at Technovanza during 26th-28th December, 2017. \n\nRegards, \nTeam Technovanza 2017-18.'
+    const url = 'http://sms.domainadda.com/vendorsms/pushsms.aspx?user=techno16&password=technosms&msisdn=' + smsData.contact + '&sid=TECHNO&msg=' + message + '&fl=0&gwid=2';
+    request(url, function (error, response, body) {
+      console.log('sent!');
+      //console.log('Error : '+ JSON.stringify(error));
+      //console.log('Response : '+ JSON.stringify(response));
+    });
+
+};
 
 var mailer = (mailData) => {
 const mailOptions = {
   from: 'yash.jain@technovanza.org', 
   to: mailData.email,
   subject: 'Registration Successful | Technovanza 2017-18',
-  html: '<p>Hi ' + mailData.name + ', <br/> Thank You for registering for ' + mailData.eventName +'.<br/> Your Registration was successful. <br/>Kindly keep this mail as proof for your registration. <br/> Thank You, Wish you have a great time at Technovanza 2017-18 during 26th-28th December, 2017. <br/><br/>Regards, <br/>Team Technovanza 2017-18</p>'
+  html: '<p>Hi ' + mailData.name + ', <br/> Thank You for registering for ' + mailData.eventName +'.<br/> Your Registration was successful. <br/>Kindly keep this mail as proof for your registration. <br/>Wish you have a great time at Technovanza 2017-18 during 26th-28th December, 2017. <br/><br/>Regards, <br/>Team Technovanza 2017-18</p>'
 };
 
 transporter.sendMail(mailOptions, function (err, info) {
@@ -93,6 +112,12 @@ app.post('/aqua',(req,res)=>{
   };
   mailer(mailData);
 
+var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Aqua Battle Front'
+  }
+  sendSms(smsData);
 });
 
 
@@ -142,6 +167,13 @@ app.post('/climb-e-rope',(req,res)=>{
     eventName : 'Climb-E-Rope'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Climb-E-Rope'
+  }
+  sendSms(smsData);
 });
 
 
@@ -229,6 +261,14 @@ app.post('/coderoyale',(req,res)=>{
     eventName : 'CodeRoyale'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'CodeRoyale'
+  }
+  sendSms(smsData);
+
 });
 
 
@@ -277,6 +317,13 @@ app.post('/codeswap',(req,res)=>{
     eventName : 'CodeSwap'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'CodeSwap'
+  }
+  sendSms(smsData);
 });
 
 
@@ -318,6 +365,12 @@ app.post('/cryptext',(req,res)=>{
   };
   mailer(mailData);
 
+var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Cryptext'
+  }
+  sendSms(smsData);
 });
 
 
@@ -358,6 +411,13 @@ app.post('/cway',(req,res)=>{
     eventName : 'C-Way'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'C-Way'
+  }
+  sendSms(smsData);
 });
 
 
@@ -411,6 +471,14 @@ app.post('/ic',(req,res)=>{
     eventName : 'Fast & Furious'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Fast & Furious'
+  }
+  sendSms(smsData);
+
 });
 
 
@@ -451,6 +519,13 @@ app.post('/bridgethegap',(req,res)=>{
     eventName : 'Bridge The Gap'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Bridge The Gap'
+  }
+  sendSms(smsData);
 });
 
 
@@ -492,6 +567,13 @@ app.post('/iot',(req,res)=>{
     eventName : 'IOT'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'IOT'
+  }
+  sendSms(smsData);
 });
 
 
@@ -534,6 +616,13 @@ app.post('/javaguru',(req,res)=>{
     eventName : 'JavaGuru'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'JavaGuru'
+  }
+  sendSms(smsData);
 });
 
 
@@ -582,6 +671,13 @@ app.post('/maze',(req,res)=>{
     eventName : 'Robomaze'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Robomaze'
+  }
+  sendSms(smsData);
  
 });
 
@@ -622,6 +718,13 @@ app.post('/missionsql',(req,res)=>{
     eventName : 'Mission Sql'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Mission Sql'
+  }
+  sendSms(smsData);
 });
 
 
@@ -662,6 +765,13 @@ app.post('/rcmo',(req,res)=>{
     eventName : 'RCMO'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'RCMO'
+  }
+  sendSms(smsData);
 });
 
 
@@ -712,6 +822,13 @@ app.post('/monsterarena',(req,res)=>{
     eventName : 'Monster Arena'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Monster Arena'
+  }
+  sendSms(smsData);
 });
 
 
@@ -801,6 +918,13 @@ app.post('/robosoccer',(req,res)=>{
     eventName : 'Robo-Soccer'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Robo-Soccer'
+  }
+  sendSms(smsData);
 });
 
 
@@ -854,6 +978,12 @@ app.post('/robosumo',(req,res)=>{
   };
   mailer(mailData);
 
+var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Robo-Sumo'
+  }
+  sendSms(smsData);
 });
 
 
@@ -908,6 +1038,13 @@ app.post('/makerssquare',(req,res)=>{
     eventName : 'Makers Square'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Makers Square'
+  }
+  sendSms(smsData);
 });
 
 
@@ -961,6 +1098,13 @@ app.post('/robomaze',(req,res)=>{
     eventName : 'Robo-Maze'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Robo-Maze'
+  }
+  sendSms(smsData);
 });
 
 //drone
@@ -1010,9 +1154,16 @@ app.post('/drone',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Drone'
+    eventName : 'Drone Racing'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Drone Racing'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1067,6 +1218,13 @@ app.post('/fastnfurious',(req,res)=>{
     eventName : 'Fast-N-Furious'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'Fast-N-Furious'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1121,6 +1279,13 @@ app.post('/robowars',(req,res)=>{
     eventName : 'RoboWars'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'RoboWars'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1160,6 +1325,13 @@ app.post('/tpp',(req,res)=>{
     eventName : 'Technical Paper Presentation'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Technical Paper Presentation'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1199,6 +1371,13 @@ app.post('/sherlocked',(req,res)=>{
     eventName : 'Sherlocked'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Sherlocked'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1238,6 +1417,13 @@ app.post('/trimble-bim-contest',(req,res)=>{
     eventName : 'Trimble-Bim-Contest'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Trimble-Bim-Contest'
+  }
+  sendSms(smsData);
 });
 
 //smartcity
@@ -1285,6 +1471,13 @@ app.post('/smartcity',(req,res)=>{
     eventName : 'Smart City'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'SmartCity'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1335,6 +1528,13 @@ let leadername = req.body.member_1;
     eventName : 'TechnoHunt'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'TechnoHunt'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1377,6 +1577,13 @@ app.post('/ultimatecoder',(req,res)=>{
     eventName : 'Ultimate Coder'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Ultimate Coder'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1430,6 +1637,13 @@ app.post('/vrc',(req,res)=>{
     eventName : 'VRC'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : leadercontact,
+    eventName : 'VRC'
+  }
+  sendSms(smsData);
 });
 
 
@@ -1470,6 +1684,13 @@ app.post('/vsm',(req,res)=>{
     eventName : 'Virtual Stock Market'
   };
   mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Virtual Stock Market'
+  }
+  sendSms(smsData);
 });
 
 
