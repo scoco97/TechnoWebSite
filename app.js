@@ -113,7 +113,7 @@ app.post('/aqua',(req,res)=>{
   mailer(mailData);
 
 var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Aqua Battle Front'
   }
@@ -169,7 +169,7 @@ app.post('/climb-e-rope',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Climb-E-Rope'
   }
@@ -319,7 +319,7 @@ app.post('/codeswap',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'CodeSwap'
   }
@@ -473,7 +473,7 @@ app.post('/ic',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Fast & Furious'
   }
@@ -673,7 +673,7 @@ app.post('/maze',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Robomaze'
   }
@@ -824,7 +824,7 @@ app.post('/monsterarena',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Monster Arena'
   }
@@ -920,7 +920,7 @@ app.post('/robosoccer',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Robo-Soccer'
   }
@@ -979,7 +979,7 @@ app.post('/robosumo',(req,res)=>{
   mailer(mailData);
 
 var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Robo-Sumo'
   }
@@ -1040,7 +1040,7 @@ app.post('/makerssquare',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Makers Square'
   }
@@ -1100,7 +1100,7 @@ app.post('/robomaze',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Robo-Maze'
   }
@@ -1159,7 +1159,7 @@ app.post('/drone',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Drone Racing'
   }
@@ -1220,7 +1220,7 @@ app.post('/fastnfurious',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'Fast-N-Furious'
   }
@@ -1281,7 +1281,7 @@ app.post('/robowars',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'RoboWars'
   }
@@ -1473,7 +1473,7 @@ app.post('/smartcity',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'SmartCity'
   }
@@ -1530,7 +1530,7 @@ let leadername = req.body.member_1;
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'TechnoHunt'
   }
@@ -1639,7 +1639,7 @@ app.post('/vrc',(req,res)=>{
   mailer(mailData);
 
   var smsData = {
-    name : name,
+    name : leadername,
     contact : leadercontact,
     eventName : 'VRC'
   }
