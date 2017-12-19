@@ -12,36 +12,36 @@ var nodemailer = require('nodemailer');
 app.use(compression());
 
 let eventsData = [
-{index:0,name:aqua,points:150},
-{index:1,name:climbe,points:30},
-{index:2,name:codeinx,points:0},
-{index:3,name:coderoyale,points:35},
-{index:4,name:codeswap,points:40},
-{index:5,name:cryptext,points:20},
-{index:6,name:cway,points:50},
-{index:7,name:drone,points:1000},
-{index:8,name:fastandfurious,points:700},
-{index:9,name:iot,points:30},
-{index:10,name:javaguru,points:0},
-{index:11,name:makerssquare,points:300},
-{index:12,name:missionsql,points:35},
-{index:13,name:monsterarena,points:150},
-{index:14,name:myst,points:0},
-{index:15,name:rcmo,points:700},
-{index:16,name:robomaze,points:70},
-{index:17,name:robosoccer,points:100},
-{index:18,name:robosumo,points:200},
-{index:19,name:robowars,points:1800},
-{index:20,name:sherlocked,points:50},
-{index:21,name:smartcity,points:100},
-{index:23,name:technohunt,points:50},
-{index:24,name:tpp,points:150},
-{index:25,name:trimblebim,points:150},
-{index:26,name:ultimatecoder,points:250},
-{index:27,name:vrc,points:700},
-{index:28,name:vsm,points:35},
-{index:29,name:stryker,points:1000},
-{index:30,name:finorama,points:500}
+{index:0,name:'aqua',points:150},
+{index:1,name:'climbe',points:30},
+{index:2,name:'codeinx',points:0},
+{index:3,name:'coderoyale',points:35},
+{index:4,name:'codeswap',points:40},
+{index:5,name:'cryptext',points:20},
+{index:6,name:'cway',points:50},
+{index:7,name:'drone',points:1000},
+{index:8,name:'fastandfurious',points:700},
+{index:9,name:'iot',points:30},
+{index:10,name:'javaguru',points:0},
+{index:11,name:'makerssquare',points:300},
+{index:12,name:'missionsql',points:35},
+{index:13,name:'monsterarena',points:150},
+{index:14,name:'myst',points:0},
+{index:15,name:'rcmo',points:700},
+{index:16,name:'robomaze',points:70},
+{index:17,name:'robosoccer',points:100},
+{index:18,name:'robosumo',points:200},
+{index:19,name:'robowars',points:1800},
+{index:20,name:'sherlocked',points:50},
+{index:21,name:'smartcity',points:100},
+{index:23,name:'technohunt',points:50},
+{index:24,name:'tpp',points:150},
+{index:25,name:'trimblebim',points:150},
+{index:26,name:'ultimatecoder',points:250},
+{index:27,name:'vrc',points:700},
+{index:28,name:'vsm',points:35},
+{index:29,name:'stryker',points:1000},
+{index:30,name:'finorama',points:500}
 ];
 
 app.post('/eventPoints',(req, res)=>{
@@ -55,7 +55,7 @@ app.post('/eventPoints',(req, res)=>{
     otp = req.body.otp;
     sheetName = "House Cup";
   }
-  else(type == 2){
+  else if(type == 2){
     otp = req.body.otp;
     collegeCode = req.body.collegeCode;
     sheetName = "College Cup";
@@ -63,7 +63,7 @@ app.post('/eventPoints',(req, res)=>{
 
   //getting data from Events Sheet
   let getDataFromEventSheet = null;
-  getData(eventName, )
+  getData(eventName)
   .then((data)=>{
     if (data != null) {
       getDataFromEventSheet = data;
@@ -78,7 +78,7 @@ app.post('/eventPoints',(req, res)=>{
 
   //updating data in Points Sheet
   let dataToSheet = {};
-  dataToSheet.push(eventsData[].points);
+  dataToSheet.push(eventsData[0].points);
 
 });
 
