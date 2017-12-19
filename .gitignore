@@ -5,3 +5,7 @@ db.js
 index_add.js
 index_get.js
 mailer.js
+points_sheet_authentication.js
+credentialssheets.googleapis.com-nodejs-quickstart-points.json
+points_get.js
+points_add.js
