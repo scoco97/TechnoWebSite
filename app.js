@@ -6,6 +6,8 @@ const login = require('./functions/login')
 const signup = require('./functions/signup')
 const sendData = require('./index_add.js');
 const getData = require('./index_get.js');
+const getPointsData = require('./points_get.js');
+const sendPointsData = require('./points_add.js');
 const transporter = require('./mailer.js');
 const request = require('request');
 var nodemailer = require('nodemailer');
@@ -13,75 +15,34 @@ app.use(compression());
 
 let eventsData = [
 {index:0,name:'aqua',points:150},
-{index:1,name:'climbe',points:30},
-{index:2,name:'codeinx',points:0},
+{index:1,name:'climb-e-rope',points:30},
+{index:2,name:'code-in-x',points:0},
 {index:3,name:'coderoyale',points:35},
 {index:4,name:'codeswap',points:40},
 {index:5,name:'cryptext',points:20},
 {index:6,name:'cway',points:50},
 {index:7,name:'drone',points:1000},
-{index:8,name:'fastandfurious',points:700},
+{index:8,name:'fast-n-furious',points:700},
 {index:9,name:'iot',points:30},
 {index:10,name:'javaguru',points:0},
-{index:11,name:'makerssquare',points:300},
-{index:12,name:'missionsql',points:35},
-{index:13,name:'monsterarena',points:150},
+{index:11,name:'makers-square',points:300},
+{index:12,name:'mission-sql',points:35},
+{index:13,name:'monster-arena',points:150},
 {index:14,name:'myst',points:0},
 {index:15,name:'rcmo',points:700},
-{index:16,name:'robomaze',points:70},
+{index:16,name:'robo-maze',points:70},
 {index:17,name:'robosoccer',points:100},
 {index:18,name:'robosumo',points:200},
-{index:19,name:'robowars',points:1800},
+{index:19,name:'robo-wars',points:1800},
 {index:20,name:'sherlocked',points:50},
-{index:21,name:'smartcity',points:100},
-{index:23,name:'technohunt',points:50},
+{index:21,name:'smart-city',points:100},
+{index:23,name:'techno-hunt',points:50},
 {index:24,name:'tpp',points:150},
-{index:25,name:'trimblebim',points:150},
-{index:26,name:'ultimatecoder',points:250},
+{index:25,name:'trimble-bim-contest',points:150},
+{index:26,name:'ultimate-coder',points:250},
 {index:27,name:'vrc',points:700},
-{index:28,name:'vsm',points:35},
-{index:29,name:'stryker',points:1000},
-{index:30,name:'finorama',points:500}
+{index:28,name:'vsm',points:35}
 ];
-
-app.post('/eventPoints',(req, res)=>{
-  let eventName = req.body.Name;
-  let type = req.body.type;
-  let otp = null;
-  let collegeCode = null;
-  let sheetName = null;
-
-  if(type == 1){
-    otp = req.body.otp;
-    sheetName = "House Cup";
-  }
-  else if(type == 2){
-    otp = req.body.otp;
-    collegeCode = req.body.collegeCode;
-    sheetName = "College Cup";
-  }
-
-  //getting data from Events Sheet
-  let getDataFromEventSheet = null;
-  getData(eventName)
-  .then((data)=>{
-    if (data != null) {
-      getDataFromEventSheet = data;
-    }
-  }).catch((error)=>{
-      console.error(error);
-  });
-
-  //updating Events Sheet
-  
-  //getting data from Points Sheet
-
-  //updating data in Points Sheet
-  let dataToSheet = {};
-  dataToSheet.push(eventsData[0].points);
-
-});
-
 
 const generateCode = ()=>{
   return null;
@@ -131,6 +92,86 @@ app.get('/events', (req, res) => {
 app.get('/thankyou',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/thankyou.html')); 
     res.end();        
+});
+
+app.post('/committeeApp',(req, res)=>{
+
+  console.log("Request arrived " + JSON.stringify(req.body));
+  let eventName = req.body.name;
+  let type = req.body.type;
+  let sheetName = null;
+  let otp = null;
+  let collegeCode = null;
+  let pointsToAdd = null;
+
+  if(type == 1){
+    otp = req.body.otp;
+    sheetName = "HOUSE-CUP";
+  }
+  else if(type == 2){
+    otp = req.body.otp;
+    collegeCode = req.body.collegeCode;
+    sheetName = "COLLEGE-CUP";
+  }
+
+  for(var i = 0; i < eventsData.length; i++ ){
+    var temp = eventsData[i];
+    if(temp.name == eventName){
+      pointsToAdd = temp.points;
+    }
+  }
+
+  //getting data from Events Sheet
+  getData(eventName.toUpperCase(),otp)
+  .then((data)=>{
+      //console.log("Data retrieved from Events sheet successfully : " + data);
+      if(data[0] == 'none'){
+        data[0] = collegeCode;
+      }else if(data[0] != 'none' && collegeCode!=null){
+        res.sendStatus(250); //PLEASE SELECT PROPER TYPE OF COLLEGE
+        res.end();
+      }
+      console.log("Data from Events Sheet :" + data);
+  //getting data from Points Sheet
+      return getPointsData(sheetName, data[0]);
+  }).catch((error)=>{
+      console.error("Getting Data From Events Sheet Error " + error);
+      res.sendStatus(210); //DATA IN EVENTS REG. SHEET DOESN'T EXIST
+      res.end();
+  }).then((result)=>{
+        //console.log("Data retrieved from Points sheet successfully : " + JSON.stringify(result));        
+  //updating data in Points Sheet
+        let dataToPointsSheet = [];
+        let updatedParticipants = parseInt(result.row[1]) + 1;
+        let updatedPoints = parseInt(result.row[2]) + pointsToAdd; 
+            dataToPointsSheet.push(updatedParticipants);
+            dataToPointsSheet.push(updatedPoints);
+
+        let dataToPointsSheetObj = {};
+            dataToPointsSheetObj.index = result.index;
+            dataToPointsSheetObj.updatedrow = dataToPointsSheet;
+        //console.log("Data to Points Sheet : "+ JSON.stringify(dataToPointsSheetObj));
+        return sendPointsData(sheetName,dataToPointsSheetObj)
+
+  }).catch((error)=>{
+      console.error("Updating Data To Points Sheet Error " + error);
+      res.sendStatus(220); //PLEASE ENTER PROPER OTP AND COLLEGE CODE
+      res.end();
+  }).then((data)=>{
+    if (data == 1) {
+      //console.log("Data entered in Points sheet successfully");
+      res.sendStatus(200); //SUCCESS
+      res.end();
+    }
+    else{
+      res.sendStatus(230); //COULD NOT UPDATE POINTS SHEET
+      res.end();
+    }
+  }).catch((error)=>{
+      console.error(error);
+      res.sendStatus(240); //GENERAL CATCH
+      res.end();
+  });
 });
 
 
