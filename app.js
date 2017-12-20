@@ -1,16 +1,14 @@
 const app = require('./express')
 const con = require('./db');
 const path = require('path');
-const compression = require('compression');
-const login = require('./functions/login')
-const signup = require('./functions/signup')
-const sendData = require('./index_add.js');
-const getData = require('./index_get.js');
-const getPointsData = require('./points_get.js');
-const sendPointsData = require('./points_add.js');
-const transporter = require('./mailer.js');
 const request = require('request');
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
+const compression = require('compression');
+const sendData = require('./functions/index_add.js');
+const getData = require('./functions/index_get.js');
+const getPointsData = require('./functions/points_get.js');
+const sendPointsData = require('./functions/points_add.js');
+const transporter = require('./functions/mailer.js');
 app.use(compression());
 
 let eventsData = [
