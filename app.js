@@ -82,12 +82,22 @@ const generateCode = ()=>{
 };
 
 var mailer = (mailData) => {
-const mailOptions = {
+  let mailOptions = {};
+if(mailData.eventName == 'Guest Lecture Series'){
+  mailOptions = {
+  from: 'yash.jain@technovanza.org', 
+  to: mailData.email,
+  subject: 'Registration Successful | Technovanza 2017-18',
+  html: '<p>Hi ' + mailData.name + ', <br/> Thank You for ' + mailData.eventName +' registration.<br/> Your Registration was successful. Wish you have a great time at Technovanza 2017-18 during 26th-28th December, 2017. <br/><br/>Regards, <br/>Team Technovanza 2017-18</p>'
+};
+}else{
+  mailOptions = {
   from: 'yash.jain@technovanza.org', 
   to: mailData.email,
   subject: 'Registration Successful | Technovanza 2017-18',
   html: '<p>Hi ' + mailData.name + ', <br/> Thank You for registering for ' + mailData.eventName +'.<br/> Your Registration was successful. <br/><br/> Your unique code is ' + mailData.otp +'. <br/>Wish you have a great time at Technovanza 2017-18 during 26th-28th December, 2017. <br/><br/>Regards, <br/>Team Technovanza 2017-18</p>'
 };
+}
 
 transporter.sendMail(mailOptions, function (err, info) {
    if(err)
@@ -1939,6 +1949,71 @@ app.post('/vsm',(req,res)=>{
     contact : contact,
     eventName : 'Virtual Stock Market',
     otp : otpGenerated
+  }
+  sendSms(smsData);
+});
+
+//askTheSpeaker
+app.get('/askTheSpeaker',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/public/register/askTheSpeaker.html'));
+});
+
+app.post('/askTheSpeaker',(req,res)=>{
+  let name = req.body.fullname;
+  let email = req.body.email;
+  let contact = req.body.contact;
+  let collegeName = req.body.collegeName;
+  let ratna_pathak = req.body.ratna_pathak;
+  let pawan_agrawal = req.body.pawan_agrawal;
+  let henry_throop = req.body.henry_throop;
+  let subramanain_swamy = req.body.subramanain_swamy;
+  let ashok_soota = req.body.ashok_soota;
+  let team_indus = req.body.team_indus;
+  let panel_discussion = req.body.panel_discussion;
+  let arup_raha = req.body.arup_raha;
+  let anima_patil = req.body.anima_patil;
+  let sonam_wangchuk = req.body.sonam_wangchuk;
+  let understanding = req.body.understanding;
+  console.log(req.body);
+
+  var insertData = [];
+  insertData.push(name);
+  insertData.push(email);
+  insertData.push(contact);
+  insertData.push(collegeName);
+  insertData.push(ratna_pathak);
+  insertData.push(pawan_agrawal);
+  insertData.push(henry_throop);
+  insertData.push(subramanain_swamy);
+  insertData.push(ashok_soota);
+  insertData.push(team_indus);
+  insertData.push(panel_discussion);
+  insertData.push(arup_raha);
+  insertData.push(anima_patil);
+  insertData.push(sonam_wangchuk);
+  insertData.push(understanding);
+  
+  console.log("insertData GLS : " + JSON.stringify(insertData))
+  sendData('GLS',insertData)
+  .then((data)=>{
+    if (data == 1) {
+        res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        
+    }
+  }).catch((error)=>{
+      console.error(error);
+  });
+
+  var mailData = {
+    name : name,
+    email : email,
+    eventName : 'Guest Lecture Series'
+  };
+  mailer(mailData);
+
+  var smsData = {
+    name : name,
+    contact : contact,
+    eventName : 'Guest Lecture Series'
   }
   sendSms(smsData);
 });
