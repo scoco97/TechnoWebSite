@@ -55,7 +55,7 @@ let collegePoints = [
 {index:7,name:'drone',points:1000},
 {index:8,name:'fast-n-furious',points:700},
 {index:9,name:'iot',points:30},
-{index:10,name:'javaguru',points:0},
+{index:10,name:'javaguru',points:50},
 {index:11,name:'makers-square',points:300},
 {index:12,name:'mission-sql',points:35},
 {index:13,name:'monster-arena',points:150},
@@ -74,6 +74,7 @@ let collegePoints = [
 {index:27,name:'vrc',points:700},
 {index:28,name:'vsm',points:35}
 ];
+
 const generateCode = ()=>{
   let otp = otpGenerator.generate(5, { alphabets: false ,upperCase: false, specialChars: false });
   //console.log("OTP GENERATED : " + otp);
@@ -288,20 +289,19 @@ app.post('/climb-e-rope',(req,res)=>{
   insertData.push(member3name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
-
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
   
-  sendData('CLIMB-E-ROPE',insertData)
-  .then((data)=>{
-    if (data == 1) {
-       res.redirect('/thankyou');
-      res.end();
-    }
-  }).catch((error)=>{
-      console.error(error);
-  });
+    sendData('CLIMB-E-ROPE',insertData)
+    .then((data)=>{
+      if (data == 1) {
+         res.redirect('/thankyou');
+        res.end();
+      }
+    }).catch((error)=>{
+        console.error(error);
+    });
 
   var mailData = {
     name : leadername,
@@ -387,10 +387,9 @@ app.post('/coderoyale',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
-  
     let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('CODEROYALE',insertData)
   .then((data)=>{
@@ -447,10 +446,10 @@ app.post('/codeswap',(req,res)=>{
   insertData.push(membercontact);
   insertData.push(collegename);
   insertData.push(house);
+    let caCode = req.body.caCode;
+  insertData.push(caCode);
   insertData.push(otpGenerated);
 
-  let caCode = req.body.caCode;
-  insertData.push(caCode);
 
   sendData('CODESWAP',insertData)
   .then((data)=>{
@@ -498,10 +497,9 @@ app.post('/cryptext',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
-
   let caCode = req.body.caCode;
   insertData.push(caCode);  
+  insertData.push(otpGenerated);
 
   sendData('CRYPTEXT',insertData)
   .then((data)=>{
@@ -549,10 +547,11 @@ app.post('/cway',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
   
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
+
 
   sendData('CWAY',insertData)
   .then((data)=>{
@@ -615,10 +614,10 @@ app.post('/ic',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('IC',insertData)
   .then((data)=>{
@@ -771,10 +770,10 @@ app.post('/javaguru',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('JAVAGURU',insertData)
   .then((data)=>{
@@ -832,10 +831,9 @@ app.post('/maze',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
-
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('MAZE',insertData)
   .then((data)=>{
@@ -883,10 +881,10 @@ app.post('/missionsql',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
   
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('MISSION-SQL',insertData)
   .then((data)=>{
@@ -933,10 +931,10 @@ app.post('/rcmo',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('RCMO',insertData)
   .then((data)=>{
@@ -993,10 +991,10 @@ app.post('/monsterarena',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
 
   sendData('MONSTER-ARENA',insertData)
@@ -1094,10 +1092,10 @@ app.post('/robosoccer',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('ROBOSOCCER',insertData)
   .then((data)=>{
@@ -1157,10 +1155,9 @@ app.post('/robosumo',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
-
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('ROBOSUMO',insertData)
   .then((data)=>{
@@ -1222,10 +1219,10 @@ app.post('/makerssquare',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('MAKERS-SQUARE',insertData)
   .then((data)=>{
@@ -1285,10 +1282,10 @@ app.post('/robomaze',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('ROBO-MAZE',insertData)
   .then((data)=>{
@@ -1348,10 +1345,10 @@ app.post('/drone',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('DRONE',insertData)
   .then((data)=>{
@@ -1413,10 +1410,10 @@ app.post('/fastnfurious',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('FAST-N-FURIOUS',insertData)
   .then((data)=>{
@@ -1686,10 +1683,10 @@ app.post('/smartcity',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('SMART-CITY',insertData)
   .then((data)=>{
@@ -1747,10 +1744,10 @@ let leadername = req.body.member_1;
   insertData.push(membercontact); 
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('TECHO-HUNT',insertData)
   .then((data)=>{
@@ -1800,10 +1797,10 @@ app.post('/ultimatecoder',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
   
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('ULTIMATE-CODER',insertData)
   .then((data)=>{
@@ -1864,10 +1861,10 @@ app.post('/vrc',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('VRC',insertData)
   .then((data)=>{
@@ -1915,10 +1912,10 @@ app.post('/vsm',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
-  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
   
   sendData('VSM',insertData)
   .then((data)=>{
