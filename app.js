@@ -9,9 +9,42 @@ const getData = require('./functions/index_get.js');
 const getPointsData = require('./functions/points_get.js');
 const sendPointsData = require('./functions/points_add.js');
 const transporter = require('./functions/mailer.js');
+const otpGenerator = require('otp-generator');
+const sendSms = require('./functions/smsGenerator');
 app.use(compression());
 
-let eventsData = [
+let housePoints = [
+{index:0,name:'aqua',points:250},
+{index:1,name:'climb-e-rope',points:150},
+{index:2,name:'code-in-x',points:0},
+{index:3,name:'coderoyale',points:0},
+{index:4,name:'codeswap',points:10},
+{index:5,name:'cryptext',points:0},
+{index:6,name:'cway',points:5},
+{index:7,name:'drone',points:0},
+{index:8,name:'fast-n-furious',points:0},
+{index:9,name:'iot',points:0},
+{index:10,name:'javaguru',points:5},
+{index:11,name:'makers-square',points:1000},
+{index:12,name:'mission-sql',points:10},
+{index:13,name:'monster-arena',points:250},
+{index:14,name:'myst',points:0},
+{index:15,name:'rcmo',points:0},
+{index:16,name:'robo-maze',points:150},
+{index:17,name:'robosoccer',points:150},
+{index:18,name:'robosumo',points:350},
+{index:19,name:'robo-wars',points:0},
+{index:20,name:'sherlocked',points:15},
+{index:21,name:'smart-city',points:150},
+{index:23,name:'techno-hunt',points:5},
+{index:24,name:'tpp',points:0},
+{index:25,name:'trimble-bim-contest',points:0},
+{index:26,name:'ultimate-coder',points:15},
+{index:27,name:'vrc',points:350},
+{index:28,name:'vsm',points:0}
+];
+
+let collegePoints = [
 {index:0,name:'aqua',points:150},
 {index:1,name:'climb-e-rope',points:30},
 {index:2,name:'code-in-x',points:0},
@@ -41,22 +74,10 @@ let eventsData = [
 {index:27,name:'vrc',points:700},
 {index:28,name:'vsm',points:35}
 ];
-
 const generateCode = ()=>{
-  return null;
-};
-
-const sendSms = (smsData)=>{
-
-    //const code = generateCode();
-    const message = 'Hi ' + smsData.name + ', \nThank You for registering for ' + smsData.eventName +'. \nYour Registration was successful. \nKindly keep this message as proof for your registration. \nWish you have a great time at Technovanza during 26th-28th December, 2017. \n\nRegards, \nTeam Technovanza 2017-18.'
-    const url = 'http://sms.domainadda.com/vendorsms/pushsms.aspx?user=techno16&password=technosms&msisdn=' + smsData.contact + '&sid=TECHNO&msg=' + message + '&fl=0&gwid=2';
-    request(url, function (error, response, body) {
-      console.log('sent!');
-      //console.log('Error : '+ JSON.stringify(error));
-      //console.log('Response : '+ JSON.stringify(response));
-    });
-
+  let otp = otpGenerator.generate(5, { alphabets: false ,upperCase: false, specialChars: false });
+  //console.log("OTP GENERATED : " + otp);
+  return otp;
 };
 
 var mailer = (mailData) => {
@@ -64,7 +85,7 @@ const mailOptions = {
   from: 'yash.jain@technovanza.org', 
   to: mailData.email,
   subject: 'Registration Successful | Technovanza 2017-18',
-  html: '<p>Hi ' + mailData.name + ', <br/> Thank You for registering for ' + mailData.eventName +'.<br/> Your Registration was successful. <br/>Kindly keep this mail as proof for your registration. <br/>Wish you have a great time at Technovanza 2017-18 during 26th-28th December, 2017. <br/><br/>Regards, <br/>Team Technovanza 2017-18</p>'
+  html: '<p>Hi ' + mailData.name + ', <br/> Thank You for registering for ' + mailData.eventName +'.<br/> Your Registration was successful. <br/><br/> Your unique code is ' + mailData.otp +'. <br/>Wish you have a great time at Technovanza 2017-18 during 26th-28th December, 2017. <br/><br/>Regards, <br/>Team Technovanza 2017-18</p>'
 };
 
 transporter.sendMail(mailOptions, function (err, info) {
@@ -110,6 +131,12 @@ app.post('/committeeApp',(req, res)=>{
     otp = req.body.otp;
     collegeCode = req.body.collegeCode;
     sheetName = "COLLEGE-CUP";
+  }
+
+  if(sheetName == "HOUSE-CUP"){
+    eventsData = housePoints;
+  }else if(sheetName == "COLLEGE-CUP"){
+    eventsData = collegePoints;
   }
 
   for(var i = 0; i < eventsData.length; i++ ){
@@ -190,6 +217,7 @@ app.post('/aqua',(req,res)=>{
   let collegename = req.body.collegeName;
   let house = req.body.House;
   let caCode = req.body.caCode;
+  let otpGenerated = generateCode();
   
   var insertData = [];
   insertData.push(teamName);
@@ -202,6 +230,7 @@ app.post('/aqua',(req,res)=>{
   insertData.push(collegename);
   insertData.push(house);
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
 
   sendData('AQUA',insertData)
@@ -217,14 +246,16 @@ app.post('/aqua',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Aqua Battle Front'
+    eventName : 'Aqua Battle Front',
+    otp : otpGenerated
   };
   mailer(mailData);
 
 var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Aqua Battle Front'
+    eventName : 'Aqua Battle Front',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -244,6 +275,7 @@ app.post('/climb-e-rope',(req,res)=>{
   let member3name = req.body.member_3;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body); 
 
 
@@ -256,6 +288,7 @@ app.post('/climb-e-rope',(req,res)=>{
   insertData.push(member3name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -273,14 +306,16 @@ app.post('/climb-e-rope',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Climb-E-Rope'
+    eventName : 'Climb-E-Rope',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Climb-E-Rope'
+    eventName : 'Climb-E-Rope',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -343,6 +378,7 @@ app.post('/coderoyale',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -351,6 +387,7 @@ app.post('/coderoyale',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
   
     let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -367,14 +404,16 @@ app.post('/coderoyale',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'CodeRoyale'
+    eventName : 'CodeRoyale',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'CodeRoyale'
+    eventName : 'CodeRoyale',
+    otp : otpGenerated
   }
   sendSms(smsData);
 
@@ -395,6 +434,7 @@ app.post('/codeswap',(req,res)=>{
   let membercontact = req.body.contact_2;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body); 
 
   var insertData= [];
@@ -407,6 +447,7 @@ app.post('/codeswap',(req,res)=>{
   insertData.push(membercontact);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -423,14 +464,16 @@ app.post('/codeswap',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'CodeSwap'
+    eventName : 'CodeSwap',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'CodeSwap'
+    eventName : 'CodeSwap',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -446,6 +489,7 @@ app.post('/cryptext',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -454,6 +498,7 @@ app.post('/cryptext',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);  
@@ -470,14 +515,16 @@ app.post('/cryptext',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'Cryptext'
+    eventName : 'Cryptext',
+    otp : otpGenerated
   };
   mailer(mailData);
 
 var smsData = {
     name : name,
     contact : contact,
-    eventName : 'Cryptext'
+    eventName : 'Cryptext',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -493,6 +540,7 @@ app.post('/cway',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -501,6 +549,7 @@ app.post('/cway',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
   
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -517,15 +566,19 @@ app.post('/cway',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'C-Way'
+    eventName : 'C-Way',
+    otp : otpGenerated
   };
+  console.log("CWAY MAIL DATA :" + JSON.stringify(mailData));
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'C-Way'
+    eventName : 'C-Way',
+    otp : otpGenerated
   }
+  console.log("CWAY SMS DATA :" + JSON.stringify(smsData));
   sendSms(smsData);
 });
 
@@ -547,6 +600,7 @@ app.post('/ic',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData= [];
@@ -561,6 +615,7 @@ app.post('/ic',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -577,65 +632,71 @@ app.post('/ic',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Fast & Furious'
+    eventName : 'Fast & Furious',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Fast & Furious'
+    eventName : 'Fast & Furious',
+    otp : otpGenerated
   }
   sendSms(smsData);
 
 });
 
 
-//bdg
-app.get('/bridgethegap',(req,res)=>{
-    res.sendFile(path.join(__dirname + '/public/register/bridgethegap-register.html'));
-});
-app.post('/bridgethegap',(req,res)=>{
- let name = req.body.fullname;
-  let email = req.body.email;
-  let contact = req.body.contact;
-  let collegeName = req.body.collegeName;
-  let house = req.body.House;
-  console.log(req.body);
+// //bdg
+// app.get('/bridgethegap',(req,res)=>{
+//     res.sendFile(path.join(__dirname + '/public/register/bridgethegap-register.html'));
+// });
+// app.post('/bridgethegap',(req,res)=>{
+//  let name = req.body.fullname;
+//   let email = req.body.email;
+//   let contact = req.body.contact;
+//   let collegeName = req.body.collegeName;
+//   let house = req.body.House;
+//   let otpGenerated = generateCode();
+//   console.log(req.body);
 
-   var insertData = [];
-  insertData.push(name);
-  insertData.push(email);
-  insertData.push(contact);
-  insertData.push(collegeName);
-  insertData.push(house);
+//    var insertData = [];
+//   insertData.push(name);
+//   insertData.push(email);
+//   insertData.push(contact);
+//   insertData.push(collegeName);
+//   insertData.push(house);
+//   insertData.push(otpGenerated);
   
-  let caCode = req.body.caCode;
-  insertData.push(caCode);
+//   let caCode = req.body.caCode;
+//   insertData.push(caCode);
 
-  sendData('BRIDGETHEGAP',insertData)
-  .then((data)=>{
-    if (data == 1) {
-        res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        
-    }
-  }).catch((error)=>{
-      console.error(error);
-  });
+//   sendData('BRIDGETHEGAP',insertData)
+//   .then((data)=>{
+//     if (data == 1) {
+//         res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        
+//     }
+//   }).catch((error)=>{
+//       console.error(error);
+//   });
 
-  var mailData = {
-    name : name,
-    email : email,
-    eventName : 'Bridge The Gap'
-  };
-  mailer(mailData);
+//   var mailData = {
+//     name : name,
+//     email : email,
+//     eventName : 'Bridge The Gap',
+//     otp : otpGenerated
+//   };
+//   mailer(mailData);
 
-  var smsData = {
-    name : name,
-    contact : contact,
-    eventName : 'Bridge The Gap'
-  }
-  sendSms(smsData);
-});
+//   var smsData = {
+//     name : name,
+//     contact : contact,
+//     eventName : 'Bridge The Gap',
+//     otp : otpGenerated
+//   }
+//   sendSms(smsData);
+// });
 
 
 //iot
@@ -650,6 +711,7 @@ app.post('/iot',(req,res)=>{
   let collegeName = req.body.collegeName;
   let house = req.body.House;
   let ca = req.body.caCode;
+
   console.log(req.body);
 
   var insertData = [];
@@ -660,6 +722,7 @@ app.post('/iot',(req,res)=>{
   insertData.push(collegeName);
   insertData.push(house);
   insertData.push(ca);
+  insertData.push(otpGenerated);
   
   sendData('IOT',insertData)
   .then((data)=>{
@@ -673,14 +736,16 @@ app.post('/iot',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'IOT'
+    eventName : 'IOT',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'IOT'
+    eventName : 'IOT',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -697,6 +762,7 @@ app.post('/javaguru',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
   var insertData = [];
@@ -705,6 +771,7 @@ app.post('/javaguru',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -722,14 +789,16 @@ app.post('/javaguru',(req,res)=>{
     var mailData = {
     name : name,
     email : email,
-    eventName : 'JavaGuru'
+    eventName : 'JavaGuru',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'JavaGuru'
+    eventName : 'JavaGuru',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -750,6 +819,7 @@ app.post('/maze',(req,res)=>{
   let member4name = req.body.member_4;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
   var insertData = [];
@@ -762,6 +832,7 @@ app.post('/maze',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -777,14 +848,16 @@ app.post('/maze',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Robomaze'
+    eventName : 'Robomaze',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Robomaze'
+    eventName : 'Robomaze',
+    otp : otpGenerated
   }
   sendSms(smsData);
  
@@ -801,6 +874,7 @@ app.post('/missionsql',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -809,6 +883,7 @@ app.post('/missionsql',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
   
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -824,14 +899,16 @@ app.post('/missionsql',(req,res)=>{
     var mailData = {
     name : name,
     email : email,
-    eventName : 'Mission Sql'
+    eventName : 'Mission Sql',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'Mission Sql'
+    eventName : 'Mission Sql',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -847,6 +924,7 @@ app.post('/rcmo',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -855,6 +933,7 @@ app.post('/rcmo',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -871,14 +950,16 @@ app.post('/rcmo',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'RCMO'
+    eventName : 'RCMO',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'RCMO'
+    eventName : 'RCMO',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -898,6 +979,7 @@ app.post('/monsterarena',(req,res)=>{
   let member4name = req.body.member_4;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body); 
 
 
@@ -911,6 +993,7 @@ app.post('/monsterarena',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -928,14 +1011,16 @@ app.post('/monsterarena',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Monster Arena'
+    eventName : 'Monster Arena',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Monster Arena'
+    eventName : 'Monster Arena',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -996,6 +1081,7 @@ app.post('/robosoccer',(req,res)=>{
   let member4name = req.body.member_4;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body); 
 
   var insertData = [];
@@ -1008,6 +1094,7 @@ app.post('/robosoccer',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1024,14 +1111,16 @@ app.post('/robosoccer',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Robo-Soccer'
+    eventName : 'Robo-Soccer',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Robo-Soccer'
+    eventName : 'Robo-Soccer',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1053,6 +1142,7 @@ app.post('/robosumo',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData= [];
@@ -1067,6 +1157,7 @@ app.post('/robosumo',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1083,14 +1174,16 @@ app.post('/robosumo',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Robo-Sumo'
+    eventName : 'Robo-Sumo',
+    otp : otpGenerated
   };
   mailer(mailData);
 
 var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Robo-Sumo'
+    eventName : 'Robo-Sumo',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1114,6 +1207,7 @@ app.post('/makerssquare',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData= [];
@@ -1128,6 +1222,7 @@ app.post('/makerssquare',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1144,14 +1239,16 @@ app.post('/makerssquare',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Makers Square'
+    eventName : 'Makers Square',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Makers Square'
+    eventName : 'Makers Square',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1172,6 +1269,7 @@ app.post('/robomaze',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);  
 
 
@@ -1187,6 +1285,7 @@ app.post('/robomaze',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1203,14 +1302,16 @@ app.post('/robomaze',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Robo-Maze'
+    eventName : 'Robo-Maze',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Robo-Maze'
+    eventName : 'Robo-Maze',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1231,6 +1332,7 @@ app.post('/drone',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
     console.log(req.body);
 
 
@@ -1246,6 +1348,7 @@ app.post('/drone',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1262,14 +1365,16 @@ app.post('/drone',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Drone Racing'
+    eventName : 'Drone Racing',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Drone Racing'
+    eventName : 'Drone Racing',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1292,6 +1397,7 @@ app.post('/fastnfurious',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
     console.log(req.body);
 
 
@@ -1307,6 +1413,7 @@ app.post('/fastnfurious',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1323,14 +1430,16 @@ app.post('/fastnfurious',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Fast-N-Furious'
+    eventName : 'Fast-N-Furious',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'Fast-N-Furious'
+    eventName : 'Fast-N-Furious',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1353,6 +1462,7 @@ app.post('/robowars',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
     console.log(req.body);
 
 
@@ -1368,6 +1478,7 @@ app.post('/robowars',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1384,14 +1495,16 @@ app.post('/robowars',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'RoboWars'
+    eventName : 'RoboWars',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'RoboWars'
+    eventName : 'RoboWars',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1407,6 +1520,7 @@ app.post('/tpp',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -1417,6 +1531,7 @@ app.post('/tpp',(req,res)=>{
   insertData.push(house);
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('TPP',insertData)
   .then((data)=>{
@@ -1430,14 +1545,16 @@ app.post('/tpp',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'Technical Paper Presentation'
+    eventName : 'Technical Paper Presentation',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'Technical Paper Presentation'
+    eventName : 'Technical Paper Presentation',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1453,6 +1570,7 @@ app.post('/sherlocked',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -1463,6 +1581,7 @@ app.post('/sherlocked',(req,res)=>{
   insertData.push(house);
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('SHERLOCKED',insertData)
   .then((data)=>{
@@ -1476,14 +1595,16 @@ app.post('/sherlocked',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'Sherlocked'
+    eventName : 'Sherlocked',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'Sherlocked'
+    eventName : 'Sherlocked',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1499,6 +1620,7 @@ app.post('/trimble-bim-contest',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
    var insertData = [];
@@ -1509,6 +1631,7 @@ app.post('/trimble-bim-contest',(req,res)=>{
   insertData.push(house);
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
 
   sendData('TRIMBLE-BIM-CONTEST',insertData)
   .then((data)=>{
@@ -1522,14 +1645,16 @@ app.post('/trimble-bim-contest',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'Trimble-Bim-Contest'
+    eventName : 'Trimble-Bim-Contest',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'Trimble-Bim-Contest'
+    eventName : 'Trimble-Bim-Contest',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1548,6 +1673,7 @@ app.post('/smartcity',(req,res)=>{
   let member4name = req.body.member_4;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body); 
 
   var insertData = [];
@@ -1560,6 +1686,7 @@ app.post('/smartcity',(req,res)=>{
   insertData.push(member4name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1576,14 +1703,16 @@ app.post('/smartcity',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'Smart City'
+    eventName : 'Smart City',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'SmartCity'
+    eventName : 'SmartCity',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1604,6 +1733,7 @@ let leadername = req.body.member_1;
   let membercontact = req.body.contact_2;
   let house = req.body.House;
   let collegename = req.body.collegeName;
+  let otpGenerated = generateCode();
   console.log(req.body);  
 
 
@@ -1617,6 +1747,7 @@ let leadername = req.body.member_1;
   insertData.push(membercontact); 
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1633,14 +1764,16 @@ let leadername = req.body.member_1;
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'TechnoHunt'
+    eventName : 'TechnoHunt',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'TechnoHunt'
+    eventName : 'TechnoHunt',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1657,6 +1790,7 @@ app.post('/ultimatecoder',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
 
@@ -1666,6 +1800,7 @@ app.post('/ultimatecoder',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
   
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1682,14 +1817,16 @@ app.post('/ultimatecoder',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'Ultimate Coder'
+    eventName : 'Ultimate Coder',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'Ultimate Coder'
+    eventName : 'Ultimate Coder',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1711,6 +1848,7 @@ app.post('/vrc',(req,res)=>{
   let member6name = req.body.member_6;
   let collegename = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
     console.log(req.body);
 
 
@@ -1726,6 +1864,7 @@ app.post('/vrc',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1742,14 +1881,16 @@ app.post('/vrc',(req,res)=>{
   var mailData = {
     name : leadername,
     email : leaderemail,
-    eventName : 'VRC'
+    eventName : 'VRC',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : leadername,
     contact : leadercontact,
-    eventName : 'VRC'
+    eventName : 'VRC',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
@@ -1765,6 +1906,7 @@ app.post('/vsm',(req,res)=>{
   let contact = req.body.contact;
   let collegeName = req.body.collegeName;
   let house = req.body.House;
+  let otpGenerated = generateCode();
   console.log(req.body);
 
   var insertData = [];
@@ -1773,6 +1915,7 @@ app.post('/vsm',(req,res)=>{
   insertData.push(contact);
   insertData.push(collegeName);
   insertData.push(house);
+  insertData.push(otpGenerated);
 
   let caCode = req.body.caCode;
   insertData.push(caCode);
@@ -1789,14 +1932,16 @@ app.post('/vsm',(req,res)=>{
   var mailData = {
     name : name,
     email : email,
-    eventName : 'Virtual Stock Market'
+    eventName : 'Virtual Stock Market',
+    otp : otpGenerated
   };
   mailer(mailData);
 
   var smsData = {
     name : name,
     contact : contact,
-    eventName : 'Virtual Stock Market'
+    eventName : 'Virtual Stock Market',
+    otp : otpGenerated
   }
   sendSms(smsData);
 });
