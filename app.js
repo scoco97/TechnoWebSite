@@ -1954,11 +1954,11 @@ app.post('/vsm',(req,res)=>{
 });
 
 //askTheSpeaker
-app.get('/askTheSpeaker',(req,res)=>{
+app.get('/GuestLectureSeries',(req,res)=>{
     res.sendFile(path.join(__dirname + '/public/register/askTheSpeaker.html'));
 });
 
-app.post('/askTheSpeaker',(req,res)=>{
+app.post('/GuestLectureSeries',(req,res)=>{
   let name = req.body.fullname;
   let email = req.body.email;
   let contact = req.body.contact;

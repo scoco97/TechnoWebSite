@@ -5288,6 +5288,64 @@ h1 {
         z-index: 4
     }
     </style>
+    <!-- STYLE FOR REGISTER BUTTON -->
+
+  <style type="text/css">
+    .button {
+  opacity: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 180px;
+  height: 60px;
+  text-decoration: none;
+}
+
+.button.blue {
+  color: #5E89FB;
+}
+.button.green {
+  color: #18F38C;
+}
+
+.button.orange{
+  color:#f56200;
+}
+.button.red {
+  color: #FF1461;
+}
+
+.button svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  stroke-width: 0;
+  fill: none;
+  /*fill-rule: evenodd;*/
+  stroke: currentColor;
+}
+
+.button.green svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.button path {
+  scale: .9;
+  transform-origin: 50% 50%;
+}
+  </style>
+ <!-- REGISTER BUTTON STYLES ENDS -->
 </head>
 
 
@@ -5763,7 +5821,14 @@ startItem: 0
                 <!-- the preloader END -->
             </div>
             <div class="card-panel center-align">
-          <a href="/askTheSpeaker"><button class = "btn waves-effect waves-grey darken-3">Register for Guest Lecture Series <i class="fa fa-forward"></i> </button> </a>
+              <!-- <a class="button orange registerForEvent center-align" href="#" style="opacity: 1;">
+                  <svg viewBox="0 0 180 60">
+                   <path d="M10,10 C10,10 50,9.98999977 90,9.98999977 C130,9.98999977 170,10 170,10 C170,10 170.009995,20 170.009995,30 C170.009995,40 170,50 170,50 C170,50 130,50.0099983 90,50.0099983 C50,50.0099983 10,50 10,50 C10,50 9.98999977,40 9.98999977,30 C9.98999977,20 10,10 10,10 Z">
+                   </path>
+                  </svg>
+                <span>Register</span>
+              </a> -->
+          <a href="/GuestLectureSeries"><button class = "btn waves-effect waves-grey darken-3">Register for Guest Lecture Series <i class="fa fa-forward"></i> </button> </a>
         </div>
             <!-- <h2 >Previous Lectures</h2> -->
         </section>
