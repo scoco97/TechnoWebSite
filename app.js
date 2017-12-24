@@ -1485,10 +1485,10 @@ app.post('/robowars',(req,res)=>{
   insertData.push(member6name);
   insertData.push(collegename);
   insertData.push(house);
-  insertData.push(otpGenerated);
-
   let caCode = req.body.caCode;
   insertData.push(caCode);
+  insertData.push(otpGenerated);
+
 
   sendData('ROBO-WARS',insertData)
   .then((data)=>{
@@ -2086,8 +2086,8 @@ app.get('/Climb-E-Rope_DRAFT_1',function(req,res){
   res.sendFile(path.join(__dirname + '/public/downloads/Climb-E-Rope 2017_Draft-1.pdf'));
 });
 
-app.get('/Aqua_DRAFT_1',function(req,res){
-  res.sendFile(path.join(__dirname + '/public/downloads/Aqua Battlefront 2017_Draft-1.pdf'));
+app.get('/Aqua_DRAFT_2',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/downloads/Aqua Battlefront 2017_Draft-2.pdf'));
 }); 
 
 app.get('/Robowars_DRAFT_1',function(req,res){
