@@ -8,6 +8,7 @@ const sendData = require('./functions/index_add.js');
 const getData = require('./functions/index_get.js');
 const getPointsData = require('./functions/points_get.js');
 const sendPointsData = require('./functions/points_add.js');
+const updateEventsRow = require('./functions/updateEventsSheet.js');
 const transporter = require('./functions/mailer.js');
 const otpGenerator = require('otp-generator');
 const sendSms = require('./functions/smsGenerator');
@@ -157,10 +158,12 @@ app.post('/committeeApp',(req, res)=>{
     }
   }
 
+  let index = 0;
   //getting data from Events Sheet
   getData(eventName.toUpperCase(),otp)
   .then((data)=>{
       //console.log("Data retrieved from Events sheet successfully : " + data);
+      index = data[1];
       if(data[0] == 'none'){
         data[0] = collegeCode;
       }else if(data[0] != 'none' && collegeCode!=null){
@@ -172,7 +175,7 @@ app.post('/committeeApp',(req, res)=>{
       return getPointsData(sheetName, data[0]);
   }).catch((error)=>{
       console.error("Getting Data From Events Sheet Error " + error);
-      res.sendStatus(210); //DATA IN EVENTS REG. SHEET DOESN'T EXIST
+      res.sendStatus(210); //DATA IN EVENTS REG. SHEET DOESN'T EXIST OR OTP-REUSED
       res.end();
   }).then((result)=>{
         //console.log("Data retrieved from Points sheet successfully : " + JSON.stringify(result));        
@@ -187,6 +190,7 @@ app.post('/committeeApp',(req, res)=>{
             dataToPointsSheetObj.index = result.index;
             dataToPointsSheetObj.updatedrow = dataToPointsSheet;
         //console.log("Data to Points Sheet : "+ JSON.stringify(dataToPointsSheetObj));
+        updateEventsRow(eventName, index+1);
         return sendPointsData(sheetName,dataToPointsSheetObj)
 
   }).catch((error)=>{
