@@ -1788,7 +1788,7 @@ let leadername = req.body.member_1;
   insertData.push(otpGenerated);
   insertData.push("no");
 
-  sendData('TECHO-HUNT',insertData)
+  sendData('TECHNO-HUNT',insertData)
   .then((data)=>{
     if (data == 1) {
         res.sendFile(path.join(__dirname + '/public/register/thankyou.html'));        

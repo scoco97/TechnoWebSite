@@ -90,13 +90,15 @@ new Chart(document.getElementById("house-cup-bar"), {
       },
       scales: {
         yAxes: [{
-         barPercentage: 0.45
-
+         barPercentage: 0.45,
+         categoryPercentage : 0.75
         }],
          xAxes:[{
             gridLines: {
             display:false
-        },
+        }, gridLines: {
+                offsetGridLines: true
+            },
           ticks: {
              min: 0,
              beginAtZero: true,
